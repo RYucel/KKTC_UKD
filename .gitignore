@@ -1,0 +1,8 @@
+data/raw/
+data/combined_ukd.csv
+__pycache__/
+*.pyc
+.venv/
+.streamlit/secrets.toml
+.streamlit/config.toml
+boot.log
