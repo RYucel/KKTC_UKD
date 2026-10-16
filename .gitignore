@@ -6,3 +6,6 @@ __pycache__/
 .streamlit/secrets.toml
 .streamlit/config.toml
 boot.log
+web/node_modules/
+web/dist/
+data/raw_kksfed/

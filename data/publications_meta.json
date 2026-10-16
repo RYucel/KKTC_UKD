@@ -1,0 +1,2223 @@
+[
+  {
+    "id": "85f5dcbd-ce4e-48b0-86a8-cabab8ae2c7e",
+    "name": "MAYIS 2022",
+    "publicationDate": "2022-05-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "f4c251b8-8a81-408d-849b-fc1fa2c63c71",
+        "name": "Harika Bir Dünya Satranç Turnuvası A Grup",
+        "startDate": "2022-03-04T00:00:00.000Z",
+        "endDate": "2022-04-01T00:00:00.000Z"
+      },
+      {
+        "id": "3a8eeaf1-fef7-4d4d-aced-2ad495d0b67d",
+        "name": "Harika Bir Dünya Satranç Turnuvası B Grup",
+        "startDate": "2022-03-04T00:00:00.000Z",
+        "endDate": "2022-04-01T00:00:00.000Z"
+      },
+      {
+        "id": "ee8f3200-a546-43f0-ae8e-0bff838defd8",
+        "name": "TOSUNOĞLU GRUP 40+ YAŞ SATRANÇ TURNUVASI 2022",
+        "startDate": "2022-03-09T00:00:00.000Z",
+        "endDate": "2022-04-20T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "1edee9bb-7cc5-48e6-86a1-020407f0f364",
+    "name": "HAZİRAN 2022",
+    "publicationDate": "2022-06-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "ade739b0-b1c3-46f0-9471-1ec024c82b81",
+        "name": "Dormen Bilişim Satranç turnuvası",
+        "startDate": "2022-05-05T00:00:00.000Z",
+        "endDate": "2022-05-09T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "9e6a0409-178b-409f-8b01-17308451e87c",
+    "name": "AĞUSTOS 2022",
+    "publicationDate": "2022-08-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "7b002a02-dec9-431e-97d5-52f1c5b15987",
+        "name": "DÖVEÇ GRUP TURNUVASI KÜÇÜKLER",
+        "startDate": "2022-07-22T00:00:00.000Z",
+        "endDate": "2022-07-31T00:00:00.000Z"
+      },
+      {
+        "id": "a74b4c0d-3cf0-40f8-a7e8-38f9e8c0622a",
+        "name": "DÖVEÇ GRUP TURNUVASI YILDIZLAR",
+        "startDate": "2022-07-22T00:00:00.000Z",
+        "endDate": "2022-07-31T00:00:00.000Z"
+      },
+      {
+        "id": "6001c5b6-1392-41da-9ab7-63b4cc0e79b8",
+        "name": "DÖVEÇ GRUP TURNUVASI AÇIK",
+        "startDate": "2022-07-27T00:00:00.000Z",
+        "endDate": "2022-07-31T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "962ac79b-57af-4357-a35b-6b1b4453d4e9",
+    "name": "EYLÜL 2022",
+    "publicationDate": "2022-09-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "bebeb9dd-b850-4c67-907c-265642ee0e55",
+        "name": "YAŞ BİRİNCİLİKLERİ HAZIRLIK TURNUVASI KÜÇÜKLER",
+        "startDate": "2022-08-01T00:00:00.000Z",
+        "endDate": "2022-08-05T00:00:00.000Z"
+      },
+      {
+        "id": "d183de9f-5e54-4fd5-9356-78aedf2b5103",
+        "name": "YAŞ BİRİNCİLİKLERİ HAZIRLIK TURNUVASI YILDIZLAR VE GENÇLER",
+        "startDate": "2022-08-01T00:00:00.000Z",
+        "endDate": "2022-08-05T00:00:00.000Z"
+      },
+      {
+        "id": "a3a2d826-8922-469c-95dc-c954cac64394",
+        "name": "Siyah At Satranç turnuvası",
+        "startDate": "2022-08-01T00:00:00.000Z",
+        "endDate": "2022-08-05T00:00:00.000Z"
+      },
+      {
+        "id": "b0a2fe1a-8941-49fa-85db-ef506748a132",
+        "name": "YAŞ BİRİNCİLİKLERİ HAZIRLIK TURNUVASI MİNİKLER",
+        "startDate": "2022-08-01T00:00:00.000Z",
+        "endDate": "2022-08-05T00:00:00.000Z"
+      },
+      {
+        "id": "54721ee5-f806-403b-9184-d22f2004dd51",
+        "name": "KKSF Kadınlar Satranç Şampiyonası",
+        "startDate": "2022-08-12T00:00:00.000Z",
+        "endDate": "2022-08-14T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "56c3ff60-1b7d-4f19-8430-2038b00794b3",
+    "name": "EKİM 2022",
+    "publicationDate": "2022-10-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "272d1c6e-17b2-4e49-9225-017c88bc13ce",
+        "name": "KKSF 2022 Bireysel Federasyon Kupası",
+        "startDate": "2022-09-02T00:00:00.000Z",
+        "endDate": "2022-09-05T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "c2829009-ef9c-46e0-b62b-afe854655ae2",
+    "name": "KASIM 2022",
+    "publicationDate": "2022-11-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "ab5f66f4-ad31-4f2f-b6eb-435ad8ee4ffb",
+        "name": "Havva Özay Anı Satranç Turnuvası Minikler",
+        "startDate": "2022-10-15T00:00:00.000Z",
+        "endDate": "2022-10-16T00:00:00.000Z"
+      },
+      {
+        "id": "1018a87e-6b5f-4c4d-93ba-506749272b79",
+        "name": "Havva Özay Anı Satranç Turnuvası Civcivler",
+        "startDate": "2022-10-15T00:00:00.000Z",
+        "endDate": "2022-10-16T00:00:00.000Z"
+      },
+      {
+        "id": "4c7a9dc3-c453-405f-8fc3-5cd95019c250",
+        "name": "Havva Özay Anı Satranç Turnuvası Küçükler",
+        "startDate": "2022-10-15T00:00:00.000Z",
+        "endDate": "2022-10-16T00:00:00.000Z"
+      },
+      {
+        "id": "f98be01a-7989-4d68-b111-791533a984b1",
+        "name": "Havva Özay Anı Satranç Turnuvası Yıldızlar",
+        "startDate": "2022-10-15T00:00:00.000Z",
+        "endDate": "2022-10-16T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "84d900f1-fa58-4e80-8c2c-dbba97792585",
+    "name": "ARALIK 2022",
+    "publicationDate": "2022-12-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "ee4cfb18-fff9-4e8f-b7b7-51f3795f6954",
+        "name": "Havva Özay Anı Satranç Turnuvası Açık Kategori",
+        "startDate": "2022-09-30T00:00:00.000Z",
+        "endDate": "2022-11-11T00:00:00.000Z"
+      },
+      {
+        "id": "82123c7c-8c9b-4219-b717-6f12e4b8ee0e",
+        "name": "2022 KKSF LİGLERİ BİRİNCİ LİG",
+        "startDate": "2022-10-29T00:00:00.000Z",
+        "endDate": "2022-11-13T00:00:00.000Z"
+      },
+      {
+        "id": "46c35c3a-a7df-4789-bec5-3e01c2a0a468",
+        "name": "2022 KKSF LİGLERİ SÜPER LİG",
+        "startDate": "2022-10-29T00:00:00.000Z",
+        "endDate": "2022-11-06T00:00:00.000Z"
+      },
+      {
+        "id": "db319b48-c23e-4bd5-9261-83a274405a99",
+        "name": "2022 KKSF LİGLERİ İKİNCİ LİG",
+        "startDate": "2022-10-29T00:00:00.000Z",
+        "endDate": "2022-11-13T00:00:00.000Z"
+      },
+      {
+        "id": "26a34a95-5e49-4819-8085-46d1b9f287bf",
+        "name": "YUSUF DEĞİRMENCİOĞLU AÇIK",
+        "startDate": "2022-11-07T00:00:00.000Z",
+        "endDate": "2022-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "ebe1122f-0375-47bc-a240-40ecb4f8d823",
+        "name": "YUSUF DEĞİRMENCİOĞLU MİNİKLER",
+        "startDate": "2022-11-07T00:00:00.000Z",
+        "endDate": "2022-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "6e051fd0-8100-4840-8ae5-178b426bd5aa",
+        "name": "HALKEN TURNUVASI 2012 DOĞUMLULAR",
+        "startDate": "2022-11-19T00:00:00.000Z",
+        "endDate": "2022-11-20T00:00:00.000Z"
+      },
+      {
+        "id": "947231c1-1f04-4cf1-96e2-92083fc4e9e3",
+        "name": "HALKEN TURNUVASI 2013 DOĞUMLULAR",
+        "startDate": "2022-11-19T00:00:00.000Z",
+        "endDate": "2022-11-20T00:00:00.000Z"
+      },
+      {
+        "id": "954588dc-abc1-42c3-b392-83b2cd2aea32",
+        "name": "HALKEN TURNUVASI 2014 DOĞUMLULAR",
+        "startDate": "2022-11-19T00:00:00.000Z",
+        "endDate": "2022-11-20T00:00:00.000Z"
+      },
+      {
+        "id": "6d94cf2a-ba18-4888-a900-eba875becc39",
+        "name": "HALKEN TURNUVASI 2015 DOĞUMLULAR",
+        "startDate": "2022-11-19T00:00:00.000Z",
+        "endDate": "2022-11-20T00:00:00.000Z"
+      },
+      {
+        "id": "e59f4858-1187-4bb0-ac77-9c865cbf864d",
+        "name": "HALKEN TURNUVASI 2016-2017 DOĞUMLULAR",
+        "startDate": "2022-11-19T00:00:00.000Z",
+        "endDate": "2022-11-20T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "b8746a69-088f-4e54-8a66-fccc354e136b",
+    "name": "OCAK 2023",
+    "publicationDate": "2023-01-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "fdeb1a98-2dd9-46b2-b3fa-afb3b752ad7b",
+        "name": "2023 YAŞ GRUPLARI 16K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "a42481df-16f0-4694-9e72-6a3087a4df28",
+        "name": "2023 YAŞ GRUPLARI 7G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "672a1c4d-0b54-4a4c-be23-8d7accf1fe42",
+        "name": "2023 YAŞ GRUPLARI 7K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "70a002ec-ceef-41a4-9040-ed41261db38d",
+        "name": "2023 YAŞ GRUPLARI 8G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "3edb1a0a-1946-4b7e-94d8-1248d2744305",
+        "name": "2023 YAŞ GRUPLARI 8K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "57215d84-734b-4a6e-8693-7f49857e4c60",
+        "name": "2023 YAŞ GRUPLARI 9G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "a645a407-337b-44f1-b777-75cac763dc00",
+        "name": "2023 YAŞ GRUPLARI 9K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "9b4c9ab5-2c40-40bc-b7fe-abf5015bb2da",
+        "name": "2023 YAŞ GRUPLARI 10G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "3ac034bb-d026-4502-afbb-b6a0a3d247f0",
+        "name": "2023 YAŞ GRUPLARI 10K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "1e39311a-4f35-43f9-93e2-01a74d9a6c3c",
+        "name": "2023 YAŞ GRUPLARI 11G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "f27bcfe4-bb0d-4b85-a475-eb9a52f5a02c",
+        "name": "2023 YAŞ GRUPLARI 11K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "04ee9978-986b-405b-9a48-a2a383a00b38",
+        "name": "2023 YAŞ GRUPLARI 12G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "d44c0b6a-3090-4a44-a35d-751abc96f90f",
+        "name": "2023 YAŞ GRUPLARI 12K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "a21bfb65-286e-476a-b4ff-8179e7051aec",
+        "name": "2023 YAŞ GRUPLARI 13G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "471b531d-c428-49bd-a9b3-f620c1525437",
+        "name": "2023 YAŞ GRUPLARI 13K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "7b18b20b-57b6-49ab-97f7-9797bdfed9b6",
+        "name": "2023 YAŞ GRUPLARI 14G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "93836051-2db5-4dfe-b595-084871bfc504",
+        "name": "2023 YAŞ GRUPLARI 14K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "5b851929-ff75-4983-bd1c-40ee9c518699",
+        "name": "2023 YAŞ GRUPLARI 15G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "0693061f-6cd4-40e5-98b5-76523b92efc1",
+        "name": "2023 YAŞ GRUPLARI 15K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "1dc44d0c-3207-4b20-9ccd-83ce89352d7d",
+        "name": "2023 YAŞ GRUPLARI 16G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "fcf581e8-4073-4881-afb9-0f04e6eb36db",
+        "name": "2023 YAŞ GRUPLARI 17G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "e3460802-0adf-4515-86cb-babcc9b3ceca",
+        "name": "2023 YAŞ GRUPLARI 17K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "4af2f969-56fd-4f5a-bf3f-b333c4267805",
+        "name": "2023 YAŞ GRUPLARI 18G",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "b687cb23-7262-4f03-ad4e-d360a48785ba",
+        "name": "2023 YAŞ GRUPLARI 18K",
+        "startDate": "2022-12-10T00:00:00.000Z",
+        "endDate": "2022-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "1f14b7a8-d7aa-46d2-b9eb-b78d049f99f6",
+        "name": "U16 ALTYAPI LİGİ 2022",
+        "startDate": "2022-12-15T00:00:00.000Z",
+        "endDate": "2022-12-16T00:00:00.000Z"
+      },
+      {
+        "id": "457481c7-272b-45a1-85d9-744e64f32d82",
+        "name": "KKSF EMEKTERLAR TURNUVASI 2022",
+        "startDate": "2022-12-22T00:00:00.000Z",
+        "endDate": "2022-12-23T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "ce5b41de-1c91-44af-9b41-9fc2add6adf0",
+    "name": "NİSAN 2023",
+    "publicationDate": "2023-04-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "abb7404f-6fc9-4159-9bf2-e8f9c43f09a6",
+        "name": "KKSF 2022 M.Kemal Deniz Genel Satranç Şampiyonası",
+        "startDate": "2022-12-24T00:00:00.000Z",
+        "endDate": "2023-03-19T00:00:00.000Z"
+      },
+      {
+        "id": "114fd628-97f3-42af-8807-b5137e198433",
+        "name": "Tosunoğlu Grup +40 Yaş Turnuvası 2023",
+        "startDate": "2023-02-24T00:00:00.000Z",
+        "endDate": "2023-03-14T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "7c2a3407-5aee-455a-950c-6826e84d80f4",
+    "name": "MAYIS 2023",
+    "publicationDate": "2023-05-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "6fe7edfd-f63c-4452-9853-5b13b289dfa5",
+        "name": "KELİN YERİ BÜYÜKLER",
+        "startDate": "2023-04-08T00:00:00.000Z",
+        "endDate": "2023-04-09T00:00:00.000Z"
+      },
+      {
+        "id": "f1b44204-f102-4f44-b8b5-1d526f4f24d5",
+        "name": "KELİN YERİ KÜÇÜKLER",
+        "startDate": "2023-04-09T00:00:00.000Z",
+        "endDate": "2023-04-09T23:59:59.999Z"
+      }
+    ]
+  },
+  {
+    "id": "1226fd6b-3bea-4215-b9ec-8cdd0ad40465",
+    "name": "HAZİRAN 2023",
+    "publicationDate": "2023-06-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "aac90387-c636-45dd-ad5d-a4363163e8d5",
+        "name": "2.LİG 2023",
+        "startDate": "2023-04-15T00:00:00.000Z",
+        "endDate": "2023-05-07T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "8e72c419-eaf8-44ab-b4ee-f8f5f86b6913",
+    "name": "TEMMUZ 2023",
+    "publicationDate": "2023-07-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "60518701-cdfc-4bb3-9df3-5a62968c9e06",
+        "name": "YEDEK LİG 2023",
+        "startDate": "2023-04-15T00:00:00.000Z",
+        "endDate": "2023-06-04T00:00:00.000Z"
+      },
+      {
+        "id": "e4e09db2-30c6-4859-a74c-db2dd232d395",
+        "name": "1.LİG 2023",
+        "startDate": "2023-04-15T00:00:00.000Z",
+        "endDate": "2023-06-04T00:00:00.000Z"
+      },
+      {
+        "id": "f1c91a23-5685-4389-8c40-238410ddd3ed",
+        "name": "SÜPER LİG 2023",
+        "startDate": "2023-04-15T00:00:00.000Z",
+        "endDate": "2023-06-04T00:00:00.000Z"
+      },
+      {
+        "id": "a91bb54a-944f-4692-9778-0ac299fdef5d",
+        "name": "HANÇER U11",
+        "startDate": "2023-05-29T00:00:00.000Z",
+        "endDate": "2023-06-02T00:00:00.000Z"
+      },
+      {
+        "id": "3c01193c-f9a3-4bc7-982d-73982a88d084",
+        "name": "HANÇER U8",
+        "startDate": "2023-05-29T00:00:00.000Z",
+        "endDate": "2023-06-02T00:00:00.000Z"
+      },
+      {
+        "id": "ccb9ad19-c3fa-4bf1-8394-188802615976",
+        "name": "HANÇER OPEN",
+        "startDate": "2023-06-05T00:00:00.000Z",
+        "endDate": "2023-06-09T00:00:00.000Z"
+      },
+      {
+        "id": "9e958ee6-9aea-4fbf-935d-ab726571f38a",
+        "name": "BİREYSEL FEDERASYON 2023",
+        "startDate": "2023-06-12T00:00:00.000Z",
+        "endDate": "2023-06-17T00:00:00.000Z"
+      },
+      {
+        "id": "98db054b-5326-4f74-8759-c748cd8f274d",
+        "name": "DORMEN GENEL",
+        "startDate": "2023-06-19T00:00:00.000Z",
+        "endDate": "2023-06-26T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "28f3cd20-814d-466a-9278-f33db55dc18b",
+    "name": "AĞUSTOS 2023",
+    "publicationDate": "2023-08-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "03dbf56b-d2da-4ce4-934d-18efb6a372d8",
+        "name": "5.AKGÜNLER İŞLETMELERİ GENÇLER",
+        "startDate": "2023-07-21T00:00:00.000Z",
+        "endDate": "2023-07-23T00:00:00.000Z"
+      },
+      {
+        "id": "7d80404e-bfbc-4e65-a13f-6c4be0e7ccd9",
+        "name": "5.AKGÜNLER İŞLETMELERİ KÜÇÜKLER",
+        "startDate": "2023-07-21T00:00:00.000Z",
+        "endDate": "2023-07-23T00:00:00.000Z"
+      },
+      {
+        "id": "71559a68-9157-4f30-bc1b-723bcfaa9d61",
+        "name": "5.AKGÜNLER İŞLETMELERİ BÜYÜKLER",
+        "startDate": "2023-07-21T00:00:00.000Z",
+        "endDate": "2023-07-23T00:00:00.000Z"
+      },
+      {
+        "id": "b963fcf4-74e2-4a64-a977-7a46421ca36a",
+        "name": "İLARMA genel kategori 2023",
+        "startDate": "2023-07-29T00:00:00.000Z",
+        "endDate": "2023-07-30T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "82289d66-0896-466b-abb8-1925e6019635",
+    "name": "EYLÜL 2023",
+    "publicationDate": "2023-09-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "0f7aedf3-4617-4081-ab31-bf39a0dee8ae",
+        "name": "SİYAH AT 2023",
+        "startDate": "2023-06-23T00:00:00.000Z",
+        "endDate": "2023-08-31T00:00:00.000Z"
+      },
+      {
+        "id": "c183c937-4d09-48fd-bc0f-752927d652e1",
+        "name": "SELİN KARAKAYA KADINLAR 2023",
+        "startDate": "2023-08-04T00:00:00.000Z",
+        "endDate": "2023-08-08T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "5936dc74-d60e-43fc-82be-aa7ee249437c",
+    "name": "EKİM 2023",
+    "publicationDate": "2023-10-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "d23f477a-9f98-46b7-88f6-f808008d7719",
+        "name": "M. KEMAL DENİZ KKTC BİRİNCİLİĞİ",
+        "startDate": "2023-09-01T00:00:00.000Z",
+        "endDate": "2023-09-17T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "300dd3dd-74b3-46ab-96f2-0ab2dbaa1643",
+    "name": "KASIM 2023",
+    "publicationDate": "2023-11-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "f46c9324-ccf9-4f8a-9f6c-c2000c4538b9",
+        "name": "BEM GENEL KATEGORİ TURNUVASI",
+        "startDate": "2023-10-14T00:00:00.000Z",
+        "endDate": "2023-10-15T00:00:00.000Z"
+      },
+      {
+        "id": "0610760b-c43b-4f8a-aa82-565334d5dcce",
+        "name": "BEM İLKOKUL KATEGORİ TURNUVASI",
+        "startDate": "2023-10-14T00:00:00.000Z",
+        "endDate": "2023-10-15T00:00:00.000Z"
+      },
+      {
+        "id": "9d371c96-2feb-4bab-a18f-0021e19b392c",
+        "name": "HAVVA ÖZAY İLKOKUL TURNUVASI 2015",
+        "startDate": "2023-10-21T00:00:00.000Z",
+        "endDate": "2023-10-22T00:00:00.000Z"
+      },
+      {
+        "id": "d4c4c07f-c03c-4450-9549-e79e08cbc636",
+        "name": "HAVVA ÖZAY İLKOKUL TURNUVASI 2013",
+        "startDate": "2023-10-21T00:00:00.000Z",
+        "endDate": "2023-10-22T00:00:00.000Z"
+      },
+      {
+        "id": "3b14697f-f0b8-406b-a88e-494342478c4b",
+        "name": "HAVVA ÖZAY İLKOKUL TURNUVASI 2014",
+        "startDate": "2023-10-21T00:00:00.000Z",
+        "endDate": "2023-10-22T00:00:00.000Z"
+      },
+      {
+        "id": "a6fc7ef2-e3fe-4e51-95d6-1022551684a6",
+        "name": "HAVVA ÖZAY İLKOKUL TURNUVASI 2016",
+        "startDate": "2023-10-21T00:00:00.000Z",
+        "endDate": "2023-10-22T00:00:00.000Z"
+      },
+      {
+        "id": "c2f90609-b632-4100-9e4c-2fe7da4af095",
+        "name": "HAVVA ÖZAY İLKOKUL TURNUVASI 2017",
+        "startDate": "2023-10-21T00:00:00.000Z",
+        "endDate": "2023-10-22T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "93d8fa6f-8966-4fbd-b5a9-7ed1f6674d18",
+    "name": "ARALIK 2023",
+    "publicationDate": "2023-12-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "8b468e0e-1646-445e-8a4a-a4d944bc42a5",
+        "name": "DENİZ PLAZA SATRANÇ TURNUVASI",
+        "startDate": "2023-10-06T00:00:00.000Z",
+        "endDate": "2023-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "9cb5df8c-5c35-4f27-94a5-dd0e198437db",
+        "name": "HAVVA ÖZAY GENEL KLASMAN TURNUVASI",
+        "startDate": "2023-10-26T00:00:00.000Z",
+        "endDate": "2023-11-05T00:00:00.000Z"
+      },
+      {
+        "id": "88dbad95-c8a1-43a7-82ea-b541bf2ecf8b",
+        "name": "YUSUF DEĞİRMENCİOĞLU KÜÇÜKLER 2023",
+        "startDate": "2023-11-13T00:00:00.000Z",
+        "endDate": "2023-11-22T00:00:00.000Z"
+      },
+      {
+        "id": "cd1cfac6-edf3-4458-a8e3-4beeb7b81e46",
+        "name": "YUSUF DEĞİRMENCİOĞLU MİNİKLER TURNUVASI",
+        "startDate": "2023-11-13T00:00:00.000Z",
+        "endDate": "2023-11-22T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "98023ae8-b466-4ce5-82ec-06c2d4bb375d",
+    "name": "OCAK 2024",
+    "publicationDate": "2024-01-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "58bbd039-806f-40ac-8ed0-88680d11ffb5",
+        "name": "1.GÜMÜŞ AT KULÜP KUPASI",
+        "startDate": "2023-10-27T00:00:00.000Z",
+        "endDate": "2023-12-02T00:00:00.000Z"
+      },
+      {
+        "id": "beb58182-24a2-4a87-ac0c-45b433a28472",
+        "name": "YAŞ BİRİNCİLİKLERİ 7 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "137a447a-f5ad-41c6-9179-81422d8875a8",
+        "name": "YAŞ BİRİNCİLİKLERİ 8 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "ceeef26d-29fe-404b-a5cf-ecbba7758faa",
+        "name": "YAŞ BİRİNCİLİKLERİ 9 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "c9664566-2276-40ee-82a9-cba1759139e3",
+        "name": "YAŞ BİRİNCİLİKLERİ 10 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "f8392ebe-080c-458b-8bea-5ade579966db",
+        "name": "YAŞ BİRİNCİLİKLERİ 11 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "227ef657-2612-464c-be2a-bd34ea99e946",
+        "name": "YAŞ BİRİNCİLİKLERİ 12 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "05846e72-73fa-4bbe-8a71-579e79b4f8e3",
+        "name": "YAŞ BİRİNCİLİKLERİ 13 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "0511f6aa-cb9b-4e00-8360-74473ad0be32",
+        "name": "YAŞ BİRİNCİLİKLERİ 14 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "6f5bca69-12c8-4733-bd48-5bce28312e90",
+        "name": "YAŞ BİRİNCİLİKLERİ 15 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "1edb62eb-404e-4466-ac14-16620377fce7",
+        "name": "YAŞ BİRİNCİLİKLERİ 16 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "997adba5-9081-4b93-bacf-4db76df8792e",
+        "name": "YAŞ BİRİNCİLİKLERİ 17 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "aabd152c-528c-4d83-93bb-57425789f48e",
+        "name": "YAŞ BİRİNCİLİKLERİ 18 YAŞ KIZLAR",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "113fa4cb-d848-4234-99d3-1cf5a6799244",
+        "name": "YAŞ BİRİNCİLİKLERİ 7 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "0b98c23b-7234-4afa-9ae1-9302c57c10b4",
+        "name": "YAŞ BİRİNCİLİKLERİ 8 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "57b1388b-629e-44d9-9d02-f45d879c0491",
+        "name": "YAŞ BİRİNCİLİKLERİ 9 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "b122770d-9fac-459a-b64b-2942cdfdf204",
+        "name": "YAŞ BİRİNCİLİKLERİ 10 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "bf5aea80-2302-487a-a2e5-d66e7cd2e63c",
+        "name": "YAŞ BİRİNCİLİKLERİ 11 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "cc78ac99-1feb-4570-a89a-690de097acca",
+        "name": "YAŞ BİRİNCİLİKLERİ 12 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "d194f85e-928f-4bd0-95f2-421dfabe652c",
+        "name": "YAŞ BİRİNCİLİKLERİ 13 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "decb9062-0930-41e6-9fde-290a65869b90",
+        "name": "YAŞ BİRİNCİLİKLERİ 14 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "9246cafc-8726-4a15-9c8a-53ea573f65c6",
+        "name": "YAŞ BİRİNCİLİKLERİ 15 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "4c65337b-c9bf-471b-b5a0-5c2b95d00998",
+        "name": "YAŞ BİRİNCİLİKLERİ 16 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "3b98538e-a774-4060-aa8d-1c0a4c7f4110",
+        "name": "YAŞ BİRİNCİLİKLERİ 17 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "2a5c3adc-b3cd-481b-8658-f1c55643e7f6",
+        "name": "YAŞ BİRİNCİLİKLERİ 18 YAŞ GENEL",
+        "startDate": "2023-12-10T00:00:00.000Z",
+        "endDate": "2023-12-10T23:59:59.999Z"
+      },
+      {
+        "id": "f923fb30-8937-471f-acd3-33e12e2c375e",
+        "name": "EMEKTARLAR TURNUVASI 2023",
+        "startDate": "2023-12-16T00:00:00.000Z",
+        "endDate": "2023-12-17T00:00:00.000Z"
+      },
+      {
+        "id": "01463b2b-56fc-4e3a-9856-9d002e3e7227",
+        "name": "ALTYAPI LİGİ U8",
+        "startDate": "2023-12-23T00:00:00.000Z",
+        "endDate": "2023-12-24T00:00:00.000Z"
+      },
+      {
+        "id": "c82ec106-de08-4310-b1f0-1fa28b9c5576",
+        "name": "ALTYAPI LİGİ U10",
+        "startDate": "2023-12-23T00:00:00.000Z",
+        "endDate": "2023-12-24T00:00:00.000Z"
+      },
+      {
+        "id": "9d529bf7-6e04-46ea-8a31-e8866ee808af",
+        "name": "ALTYAPI LİGİ U12",
+        "startDate": "2023-12-23T00:00:00.000Z",
+        "endDate": "2023-12-24T00:00:00.000Z"
+      },
+      {
+        "id": "074fa5b6-f696-4a79-b495-64ae02a31c6d",
+        "name": "ALTYAPI LİGİ U16",
+        "startDate": "2023-12-23T00:00:00.000Z",
+        "endDate": "2023-12-24T00:00:00.000Z"
+      },
+      {
+        "id": "163436dd-f658-4234-8966-156b0a9592f1",
+        "name": "ALTYAPI LİGİ U14",
+        "startDate": "2023-12-23T00:00:00.000Z",
+        "endDate": "2023-12-24T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "2f8f9ab9-baf4-4635-a1ee-ab1b42504090",
+    "name": "ŞUBAT 2024",
+    "publicationDate": "2024-02-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "c5e7dfb4-91a1-49ad-bee7-b36fc7192f9f",
+        "name": "40+ SATRANÇ TURNUVASI 2024",
+        "startDate": "2024-01-27T00:00:00.000Z",
+        "endDate": "2024-01-28T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "a39f1743-a8d1-45ac-a66e-c36081e5d081",
+    "name": "MART 2024",
+    "publicationDate": "2024-03-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "398bbad2-6583-4268-b420-5a2f979fe52e",
+        "name": "1 SÜHER BOZALANLAR SATRANÇ ANI TURNUVASI YILDIZLAR",
+        "startDate": "2024-02-13T00:00:00.000Z",
+        "endDate": "2024-02-14T00:00:00.000Z"
+      },
+      {
+        "id": "9d41d413-4ed8-4aca-b1ae-463c7fb78399",
+        "name": "1 SÜHER BOZALANLAR SATRANÇ ANI TURNUVASI BÜYÜKLER",
+        "startDate": "2024-02-13T00:00:00.000Z",
+        "endDate": "2024-02-14T00:00:00.000Z"
+      },
+      {
+        "id": "bc7e076b-b08f-4a50-8b1b-369d8a54fc91",
+        "name": "1 SÜHER BOZALANLAR SATRANÇ ANI TURNUVASI KÜÇÜKLER",
+        "startDate": "2024-02-13T00:00:00.000Z",
+        "endDate": "2024-02-14T00:00:00.000Z"
+      },
+      {
+        "id": "7aa71b48-0969-4154-b711-cae780cf7b7b",
+        "name": "SELİN KARAKAYA ANI SATRANÇ TURNUVASI B KATEGORİSİ",
+        "startDate": "2024-02-15T00:00:00.000Z",
+        "endDate": "2024-02-18T00:00:00.000Z"
+      },
+      {
+        "id": "2d622bfb-5bb8-456f-870f-cffc69f36da2",
+        "name": "SELİN KARAKAYA ANI SATRANÇ TURNUVASI C KATEGORİSİ",
+        "startDate": "2024-02-15T00:00:00.000Z",
+        "endDate": "2024-02-18T00:00:00.000Z"
+      },
+      {
+        "id": "686246e8-f4a2-4091-a65f-176de143e0b6",
+        "name": "SELİN KARAKAYA ANI SATRANÇ TURNUVASI D KATEGORİSİ",
+        "startDate": "2024-02-15T00:00:00.000Z",
+        "endDate": "2024-02-18T00:00:00.000Z"
+      },
+      {
+        "id": "6b2c2235-3cbf-4814-87cd-7a4668a6f525",
+        "name": "SELİN KARAKAYA ANI SATRANÇ TURNUVASI A KATEGORİSİ",
+        "startDate": "2024-02-15T00:00:00.000Z",
+        "endDate": "2024-02-18T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "e55f51ae-6bfb-4c89-a4fb-a253587ed404",
+    "name": "NİSAN 2024",
+    "publicationDate": "2024-04-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "833ffde2-df43-4b88-9f03-5948a64278d9",
+        "name": "GİRNE KALESİ GELİŞİM TURNUVASI",
+        "startDate": "2024-01-26T00:00:00.000Z",
+        "endDate": "2024-03-08T00:00:00.000Z"
+      },
+      {
+        "id": "b4ca2db5-02fd-44c9-87a9-171c52b25e43",
+        "name": "GENÇLER ŞAMPİYONASI",
+        "startDate": "2024-03-08T00:00:00.000Z",
+        "endDate": "2024-03-16T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "e2a9094d-a0f8-4527-9c3d-eaed31fd0d1b",
+    "name": "MAYIS 2024",
+    "publicationDate": "2024-05-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "87f77e39-997d-478f-a7e3-ad613f0e2163",
+        "name": "DORMEN BİLİŞİM GENEL KLASMAN",
+        "startDate": "2024-04-02T00:00:00.000Z",
+        "endDate": "2024-04-06T00:00:00.000Z"
+      },
+      {
+        "id": "fad8576e-0849-4742-a5bb-f7814e7ef726",
+        "name": "DORMEN BİLİŞİM KÜÇÜKLER",
+        "startDate": "2024-04-02T00:00:00.000Z",
+        "endDate": "2024-04-06T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "ea54cded-40da-47ce-84ca-87bee913e229",
+    "name": "HAZİRAN 2024",
+    "publicationDate": "2024-06-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "f322da73-3b29-4a06-865a-264d2a43db46",
+        "name": "2024 SÜPER LİG",
+        "startDate": "2024-04-07T00:00:00.000Z",
+        "endDate": "2024-05-12T00:00:00.000Z"
+      },
+      {
+        "id": "63e0813c-c477-4509-a493-81078dc38b96",
+        "name": "2024 1.LİG",
+        "startDate": "2024-04-07T00:00:00.000Z",
+        "endDate": "2024-05-12T00:00:00.000Z"
+      },
+      {
+        "id": "2808a66d-f5a2-465f-b549-f3f27201496c",
+        "name": "2024 2.LİG",
+        "startDate": "2024-04-07T00:00:00.000Z",
+        "endDate": "2024-05-12T00:00:00.000Z"
+      },
+      {
+        "id": "090e8218-0d60-4faa-89ae-0e06f860612f",
+        "name": "2024 YEDEK LİG",
+        "startDate": "2024-04-07T00:00:00.000Z",
+        "endDate": "2024-05-12T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "3fa7ecbd-8447-429e-b17d-8280077df4cc",
+    "name": "TEMMUZ 2024",
+    "publicationDate": "2024-07-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "3c43ae29-3b37-40cd-8e8a-fb4064b3f1c4",
+        "name": "2.GÜMÜŞ AT MÜESSESE SATRANÇ TURNUVASI",
+        "startDate": "2024-05-17T00:00:00.000Z",
+        "endDate": "2024-06-14T00:00:00.000Z"
+      },
+      {
+        "id": "89474321-fbf3-4edb-83f5-ba868f006830",
+        "name": "BİREYSEL FEDERASYON KUPASI 2024",
+        "startDate": "2024-06-22T00:00:00.000Z",
+        "endDate": "2024-06-30T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "aae777b2-cf6b-466e-8fea-745b41466886",
+    "name": "AĞUSTOS 2024",
+    "publicationDate": "2024-08-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "c9f5dd7e-5753-41f4-b4a2-d2baf340f72a",
+        "name": "ERBATU GROUP SATRANÇ TURNUVASI U10",
+        "startDate": "2024-07-22T00:00:00.000Z",
+        "endDate": "2024-07-26T00:00:00.000Z"
+      },
+      {
+        "id": "47a7b988-32f2-4354-b8e6-787250b2bda6",
+        "name": "2.KTAMS MİNİKLER TURNUVASI",
+        "startDate": "2024-07-22T00:00:00.000Z",
+        "endDate": "2024-07-26T00:00:00.000Z"
+      },
+      {
+        "id": "f5ded209-25d1-42eb-8af9-dca63ef997a7",
+        "name": "2.KTAMS KÜÇÜKLER TURNUVASI",
+        "startDate": "2024-07-22T00:00:00.000Z",
+        "endDate": "2024-07-26T00:00:00.000Z"
+      },
+      {
+        "id": "37ca2e63-87d5-4666-b962-f867e26174fa",
+        "name": "ERBATU GROUP SATRANÇ TURNUVASI U8",
+        "startDate": "2024-07-22T00:00:00.000Z",
+        "endDate": "2024-07-26T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "c9ad66df-6f1f-4381-92d0-3399beba4a2d",
+    "name": "EYLÜL 2024",
+    "publicationDate": "2024-09-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "285e8c79-680b-423c-a941-d4d4dba5688b",
+        "name": "ŞAHMAT UKD SATRANÇ TURNUVASI",
+        "startDate": "2024-07-09T00:00:00.000Z",
+        "endDate": "2024-08-06T00:00:00.000Z"
+      },
+      {
+        "id": "654c518d-b88f-4512-828a-a56592ba0743",
+        "name": "AKGÜNLER İŞLETMELERİ SATRANÇ TURNUVASI BÜYÜKLER",
+        "startDate": "2024-08-24T00:00:00.000Z",
+        "endDate": "2024-08-25T00:00:00.000Z"
+      },
+      {
+        "id": "efa427f0-fec2-477f-bd4e-7cc6a6bc8f79",
+        "name": "AKGÜNLER İŞLETMELERİ SATRANÇ TURNUVASI KÜÇÜKLER",
+        "startDate": "2024-08-24T00:00:00.000Z",
+        "endDate": "2024-08-25T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "e9fa502a-9c60-4b36-ad72-5f09ac302fc5",
+    "name": "EKİM 2024",
+    "publicationDate": "2024-10-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "c7ae73ef-fa2f-4c85-9394-7041acef88b7",
+        "name": "SELİN KARAKAYA KADINLAR 2024",
+        "startDate": "2024-08-29T00:00:00.000Z",
+        "endDate": "2024-09-01T00:00:00.000Z"
+      },
+      {
+        "id": "66569355-72cd-42e1-ac87-0c736cd061d5",
+        "name": "2024 M. KEMAL DENİZ KKTC GENEL SATRANÇ ŞAMPİYONASI",
+        "startDate": "2024-09-07T00:00:00.000Z",
+        "endDate": "2024-09-29T00:00:00.000Z"
+      },
+      {
+        "id": "edcdaf22-293e-4f1f-93ff-3a259f9d89fd",
+        "name": "SERTBAY CUP 1 SATRANÇ TURNUVALARI",
+        "startDate": "2024-09-07T00:00:00.000Z",
+        "endDate": "2024-09-08T00:00:00.000Z"
+      },
+      {
+        "id": "7806014d-8a61-4c82-b44c-572d3181e0d4",
+        "name": "SERTBAY CUP 2 SATRANÇ TURNUVALARI",
+        "startDate": "2024-09-14T00:00:00.000Z",
+        "endDate": "2024-09-15T00:00:00.000Z"
+      },
+      {
+        "id": "609e5cd9-31ae-47f4-bf07-2cd88dec2115",
+        "name": "ALTIN PİYON UKD SATRANÇ TURNUVASI GENEL KATEGORİ",
+        "startDate": "2024-09-14T00:00:00.000Z",
+        "endDate": "2024-09-15T00:00:00.000Z"
+      },
+      {
+        "id": "1a6584bd-6d28-4916-8e8a-a8d255549d97",
+        "name": "ALTIN PİYON UKD SATRANÇ TURNUVASI KÜÇÜKLER KATEGORİ",
+        "startDate": "2024-09-14T00:00:00.000Z",
+        "endDate": "2024-09-15T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "02c6c4f6-df78-4449-bb15-cd182819acbd",
+    "name": "KASIM 2024",
+    "publicationDate": "2024-11-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "94f0a3f8-a46b-4c11-98e4-1f5452cd1c40",
+        "name": "2024 HAVVA ÖZAY İLKOKUL 2016",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-10-20T00:00:00.000Z"
+      },
+      {
+        "id": "c57eb9e7-eeb6-4066-b97b-1a2ff03de07d",
+        "name": "2024 HAVVA ÖZAY İLKOKUL 2017",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-10-20T00:00:00.000Z"
+      },
+      {
+        "id": "7b693e70-5ff5-4b36-a76a-f94f6c53cb25",
+        "name": "2024 HAVVA ÖZAY İLKOKUL 2014",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-10-20T00:00:00.000Z"
+      },
+      {
+        "id": "9cea781d-6e56-4d6e-bcea-12d15c0e7eec",
+        "name": "2024 HAVVA ÖZAY İLKOKUL 2018",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-10-20T00:00:00.000Z"
+      },
+      {
+        "id": "50536cfd-5860-4e09-9347-425e4800c0f8",
+        "name": "2024 HAVVA ÖZAY İLKOKUL 2015",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-10-20T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "ade80cdf-3dfc-473d-ab18-72fc31cf658b",
+    "name": "ARALIK 2024",
+    "publicationDate": "2024-11-30T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "b420dede-5030-45b3-ad1f-299bbf5f9dc9",
+        "name": "HAVVA ÖZAY GENEL KLASMAN",
+        "startDate": "2024-10-09T00:00:00.000Z",
+        "endDate": "2024-11-03T00:00:00.000Z"
+      },
+      {
+        "id": "e14dab80-bc99-478c-8602-29829815f671",
+        "name": "CEMER SU UKD TURNUVASI İLKOKUL",
+        "startDate": "2024-11-01T00:00:00.000Z",
+        "endDate": "2024-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "2997ddf1-7b70-44ce-84d3-8cee318a1fbb",
+        "name": "BEM TURNUVASI MİNİKLER",
+        "startDate": "2024-11-09T00:00:00.000Z",
+        "endDate": "2024-11-10T00:00:00.000Z"
+      },
+      {
+        "id": "6cc0c892-4858-4b0e-8193-c45525edcd66",
+        "name": "BEM TURNUVASI AÇIK KATEGORİ",
+        "startDate": "2024-11-09T00:00:00.000Z",
+        "endDate": "2024-11-10T00:00:00.000Z"
+      },
+      {
+        "id": "57be7a0e-cc6c-41f4-822c-0a532f0df9ff",
+        "name": "BEM TURNUVASI KÜÇÜKLER",
+        "startDate": "2024-11-09T00:00:00.000Z",
+        "endDate": "2024-11-10T00:00:00.000Z"
+      },
+      {
+        "id": "592ad72d-6e1f-4d1c-8ba1-3045a1bbe301",
+        "name": "DAĞLI YAŞAM İÇİN MARKALAR MİNİKLER",
+        "startDate": "2024-11-16T00:00:00.000Z",
+        "endDate": "2024-11-17T00:00:00.000Z"
+      },
+      {
+        "id": "f8754105-451e-430e-b38d-250b48d3ef93",
+        "name": "DAĞLI YAŞAM İÇİN MARKALAR KÜÇÜKLER",
+        "startDate": "2024-11-16T00:00:00.000Z",
+        "endDate": "2024-11-17T00:00:00.000Z"
+      },
+      {
+        "id": "28893e26-fb0b-4c16-b84d-54a49c2c5397",
+        "name": "YUSUF DEĞİRMENCİOĞLU KÜÇÜKLER",
+        "startDate": "2024-11-18T00:00:00.000Z",
+        "endDate": "2024-11-22T00:00:00.000Z"
+      },
+      {
+        "id": "b426e4fa-e5af-433d-a208-d976be366b3b",
+        "name": "YUSUF DEĞİRMENCİOĞLU MİNİKLER",
+        "startDate": "2024-11-18T00:00:00.000Z",
+        "endDate": "2024-11-22T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "7114f02c-bbd9-4070-867d-e956efc1ec2d",
+    "name": "OCAK 2025",
+    "publicationDate": "2025-01-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "82b8bb23-deb1-4969-a9b7-fbbc0768ca6c",
+        "name": "SİYAH AT 2024",
+        "startDate": "2024-09-20T00:00:00.000Z",
+        "endDate": "2024-12-20T00:00:00.000Z"
+      },
+      {
+        "id": "ffec937d-b8d6-43d5-9eaa-6cd39f425b79",
+        "name": "II. GÜMÜŞ AT KULÜP TURNUVASI",
+        "startDate": "2024-10-19T00:00:00.000Z",
+        "endDate": "2024-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "56db94dd-dce5-4474-b14e-97534c15e94f",
+        "name": "YAŞ BİRİNCİLİKLERİ 9G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "5e4e7e18-35d4-4f0c-b31b-69ac8fafb788",
+        "name": "YAŞ BİRİNCİLİKLERİ 9K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "3526dea3-4cc0-40d1-8404-ce272ffdcca3",
+        "name": "YAŞ BİRİNCİLİKLERİ 10G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "a1357aa8-0d6c-4fa8-8bcc-39a9b2c78c8d",
+        "name": "YAŞ BİRİNCİLİKLERİ 10K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "aaabae9d-8463-4923-8cbb-ec0418fbe50a",
+        "name": "YAŞ BİRİNCİLİKLERİ 11G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "ccf1b5a6-aed5-4b3f-aab8-d23135f853e8",
+        "name": "YAŞ BİRİNCİLİKLERİ 11K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "e245143a-122d-4420-a784-250e2f795a9d",
+        "name": "YAŞ BİRİNCİLİKLERİ 12G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "cabfcae6-4355-4e52-bfd6-52ed5111efc2",
+        "name": "YAŞ BİRİNCİLİKLERİ 12K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "93b4067d-5f62-45e1-9d25-786d902cdf1e",
+        "name": "YAŞ BİRİNCİLİKLERİ 13G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "704d42e6-44de-4e7f-88e3-18d274a53e9c",
+        "name": "YAŞ BİRİNCİLİKLERİ 13K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "c0895b86-74b4-481c-ad2d-2a4661d61e16",
+        "name": "YAŞ BİRİNCİLİKLERİ 14G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "8c4f485c-e6b4-4de4-9814-257566487e99",
+        "name": "YAŞ BİRİNCİLİKLERİ 14K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "3ff07520-beca-4706-8eb3-50d74f26cf42",
+        "name": "YAŞ BİRİNCİLİKLERİ 15G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "6bf2e481-15c0-40ce-b8ee-658ef2f2294a",
+        "name": "YAŞ BİRİNCİLİKLERİ 15K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "cba23de6-6dca-4f76-84db-aa012380cd4b",
+        "name": "YAŞ BİRİNCİLİKLERİ 16G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "71bd98cd-d60a-4277-b0f1-de8e2b44d9f1",
+        "name": "YAŞ BİRİNCİLİKLERİ 16K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "91c931f2-66e6-4a97-8fa7-055af5e62753",
+        "name": "YAŞ BİRİNCİLİKLERİ 17G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "b4859643-b1be-4bc5-9f20-4a832edc5269",
+        "name": "YAŞ BİRİNCİLİKLERİ 17K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "8dc0849d-f993-4906-af1d-d0ab2575bb9e",
+        "name": "YAŞ BİRİNCİLİKLERİ 18G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "5fb59913-07f9-4247-85d3-1013cdd96aad",
+        "name": "YAŞ BİRİNCİLİKLERİ 18K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "367f9b0a-c5c4-4bf9-8590-fcc43cecc005",
+        "name": "YAŞ BİRİNCİLİKLERİ 7K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "64c90aa8-3f6c-4757-b568-232a6a00c2d6",
+        "name": "YAŞ BİRİNCİLİKLERİ 8G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "a7abc9a4-5efe-4b35-8843-b09e09e06c6a",
+        "name": "YAŞ BİRİNCİLİKLERİ 7G",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "08f8a3ed-0e49-4c96-a732-ae1c90799a36",
+        "name": "YAŞ BİRİNCİLİKLERİ 8K",
+        "startDate": "2024-11-28T00:00:00.000Z",
+        "endDate": "2024-12-01T00:00:00.000Z"
+      },
+      {
+        "id": "9674ffd9-ae43-4152-bc49-3d9795503e1e",
+        "name": "ALTYAPI LİGİ U12",
+        "startDate": "2024-12-07T00:00:00.000Z",
+        "endDate": "2024-12-08T00:00:00.000Z"
+      },
+      {
+        "id": "f3096455-60b4-4534-8a91-1c008802565b",
+        "name": "ALTYAPI LİGİ U8",
+        "startDate": "2024-12-07T00:00:00.000Z",
+        "endDate": "2024-12-08T00:00:00.000Z"
+      },
+      {
+        "id": "d8c1dd2d-9d91-4880-a3a1-2a05fa7ffa74",
+        "name": "ALTYAPI LİGİ U14",
+        "startDate": "2024-12-07T00:00:00.000Z",
+        "endDate": "2024-12-08T00:00:00.000Z"
+      },
+      {
+        "id": "f04c814d-e311-454d-9ef3-07e2ccc6b592",
+        "name": "ALTYAPI LİGİ U16",
+        "startDate": "2024-12-07T00:00:00.000Z",
+        "endDate": "2024-12-08T00:00:00.000Z"
+      },
+      {
+        "id": "49510372-0e61-4bac-9c1d-97ced10db236",
+        "name": "ALTYAPI LİGİ U10",
+        "startDate": "2024-12-07T00:00:00.000Z",
+        "endDate": "2024-12-08T00:00:00.000Z"
+      },
+      {
+        "id": "b2af2010-6ada-43dc-9329-6e4e2acc4a20",
+        "name": "EMEKTARLAR TURNUVASI 2024",
+        "startDate": "2024-12-14T00:00:00.000Z",
+        "endDate": "2024-12-15T00:00:00.000Z"
+      },
+      {
+        "id": "755e52cc-235b-4a18-a13e-e77eff4eba80",
+        "name": "KIDEMLİ EMEKTARLAR TURNUVASI 2024",
+        "startDate": "2024-12-14T00:00:00.000Z",
+        "endDate": "2024-12-15T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "907e737c-d74a-40a1-90a1-5eeeab0b4544",
+    "name": "ŞUBAT 2025",
+    "publicationDate": "2025-02-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "e12f094d-f77e-47c8-882e-d7150d1630df",
+        "name": "40+ ERGÜN SONEL EMEKTARLAR TURNUVASI",
+        "startDate": "2025-01-25T00:00:00.000Z",
+        "endDate": "2025-01-26T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "8b7c840e-4255-4a77-897f-abf50bfe1663",
+    "name": "MART 2025",
+    "publicationDate": "2025-03-05T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "dbcfe479-d574-4afb-a775-94d43b845935",
+        "name": "II. SELİN KARAKAYA ANI SATRANÇ TURNUVASI B KATEGORİSİ",
+        "startDate": "2025-01-30T00:00:00.000Z",
+        "endDate": "2025-02-02T00:00:00.000Z"
+      },
+      {
+        "id": "cd68622c-9c6e-4144-9688-9bb0c54c6e8d",
+        "name": "II. SELİN KARAKAYA ANI SATRANÇ TURNUVASI A KATEGORİSİ",
+        "startDate": "2025-01-30T00:00:00.000Z",
+        "endDate": "2025-02-02T00:00:00.000Z"
+      },
+      {
+        "id": "907b6f65-ff84-46b3-a884-fc8cf7fc8e21",
+        "name": "II. SELİN KARAKAYA ANI SATRANÇ TURNUVASI C KATEGORİSİ",
+        "startDate": "2025-01-30T00:00:00.000Z",
+        "endDate": "2025-02-02T00:00:00.000Z"
+      },
+      {
+        "id": "9b16d82f-7a36-45af-b613-45d81a96ead3",
+        "name": "II. SELİN KARAKAYA ANI SATRANÇ TURNUVASI D KATEGORİSİ",
+        "startDate": "2025-01-30T00:00:00.000Z",
+        "endDate": "2025-02-02T00:00:00.000Z"
+      },
+      {
+        "id": "e831e752-0a4d-4dcc-a7ff-6fb3288d1db4",
+        "name": "II. SELİN KARAKAYA ANI SATRANÇ TURNUVASI VETERANLAR",
+        "startDate": "2025-01-31T00:00:00.000Z",
+        "endDate": "2025-02-02T00:00:00.000Z"
+      },
+      {
+        "id": "d80e2df1-3c38-4de5-9e97-c6c25754c136",
+        "name": "II. SÜHER BOZALANLAR ANI SATRANÇ TURNUVASI KÜÇÜKLER",
+        "startDate": "2025-02-11T00:00:00.000Z",
+        "endDate": "2025-02-12T00:00:00.000Z"
+      },
+      {
+        "id": "a6fa7e31-bf4d-4dca-a038-0d35350b0f73",
+        "name": "II. SÜHER BOZALANLAR ANI SATRANÇ TURNUVASI YILDIZLAR",
+        "startDate": "2025-02-11T00:00:00.000Z",
+        "endDate": "2025-02-12T00:00:00.000Z"
+      },
+      {
+        "id": "39ccc6be-606f-4ba2-ba32-fe479ed6f91d",
+        "name": "II. SÜHER BOZALANLAR ANI SATRANÇ TURNUVASI AÇIK",
+        "startDate": "2025-02-11T00:00:00.000Z",
+        "endDate": "2025-02-12T00:00:00.000Z"
+      },
+      {
+        "id": "99d624ae-64c8-496f-bc40-069d3a6c677a",
+        "name": "KKSF GENÇLER ŞAMPİYONASI 2025",
+        "startDate": "2025-02-15T00:00:00.000Z",
+        "endDate": "2025-02-23T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "3e7480fb-c448-46ec-a176-6c634aaa3bfe",
+    "name": "NİSAN 2025",
+    "publicationDate": "2025-04-16T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "4f110f8d-eb89-485c-a239-dde1cc329f07",
+        "name": "GİRNE GELİŞİM BÜYÜKLER",
+        "startDate": "2025-02-28T00:00:00.000Z",
+        "endDate": "2025-03-28T00:00:00.000Z"
+      },
+      {
+        "id": "869ebdfc-66b9-4d06-a748-f4c47c9fa47b",
+        "name": "GİRNE GELİŞİM KÜÇÜKLER",
+        "startDate": "2025-02-28T00:00:00.000Z",
+        "endDate": "2025-03-28T00:00:00.000Z"
+      },
+      {
+        "id": "7ea49ff5-d7d0-4072-a5ad-e0257155a153",
+        "name": "SPLAT 2.NCİ LİG",
+        "startDate": "2025-03-01T00:00:00.000Z",
+        "endDate": "2025-04-06T00:00:00.000Z"
+      },
+      {
+        "id": "3fa64d25-3734-4a26-8d61-ba234707b1d2",
+        "name": "SPLAT SÜPER LİG",
+        "startDate": "2025-03-01T00:00:00.000Z",
+        "endDate": "2025-04-06T00:00:00.000Z"
+      },
+      {
+        "id": "f0bc4616-dfb3-4032-a913-9f1f931d15b6",
+        "name": "SPLAT 1.NCİ LİG",
+        "startDate": "2025-03-01T00:00:00.000Z",
+        "endDate": "2025-04-06T00:00:00.000Z"
+      },
+      {
+        "id": "6cf17c10-a8e0-4151-a782-048818811674",
+        "name": "SPLAT YEDEK LİG",
+        "startDate": "2025-03-01T00:00:00.000Z",
+        "endDate": "2025-04-06T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "a6e2fb50-a3e2-45c5-978a-b428c13bf82f",
+    "name": "MAYIS 2025",
+    "publicationDate": "2025-05-09T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "7dfe4ea5-19e2-4fed-b31a-ebc8f39b23c8",
+        "name": "LEFKOŞA BÖLGE BİRİNCİLİĞİ",
+        "startDate": "2025-04-18T00:00:00.000Z",
+        "endDate": "2025-04-20T00:00:00.000Z"
+      },
+      {
+        "id": "6af6ffd8-d4e5-4c14-a3c8-218812ba7e98",
+        "name": "GÜZELYURT BÖLGE BİRİNCİLİĞİ",
+        "startDate": "2025-04-18T00:00:00.000Z",
+        "endDate": "2025-04-20T00:00:00.000Z"
+      },
+      {
+        "id": "b246ed1a-0268-4eea-803b-ba267540423c",
+        "name": "GAZİMAĞUSA BÖLGE BİRİNCİLİĞİ",
+        "startDate": "2025-04-18T00:00:00.000Z",
+        "endDate": "2025-04-23T00:00:00.000Z"
+      },
+      {
+        "id": "aef9a389-af4c-41c0-a698-cee02cf559c1",
+        "name": "DORMEN BİLİŞİM GENEL KLASMAN",
+        "startDate": "2025-04-21T00:00:00.000Z",
+        "endDate": "2025-04-25T00:00:00.000Z"
+      },
+      {
+        "id": "e371b60a-e235-4378-8316-9f691ccd705d",
+        "name": "İLTER İNSAN-YÜCEL BAYBURT-SERCAN GARİPSAZCI 40+ ANI SATRANÇ TURNUVASI 2025",
+        "startDate": "2025-04-26T00:00:00.000Z",
+        "endDate": "2025-04-27T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "12b4028e-3876-4b3e-8b98-4ea8a9f1f71c",
+    "name": "HAZİRAN 2025",
+    "publicationDate": "2025-06-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "beda7140-653a-48cd-8eae-7d2046040698",
+        "name": "GİRNE BÖLGE BİRİNCİLİĞİ",
+        "startDate": "2025-04-18T00:00:00.000Z",
+        "endDate": "2025-05-03T00:00:00.000Z"
+      },
+      {
+        "id": "e06a3606-3bd3-4daf-a605-03149d434fd9",
+        "name": "DORMEN KÜÇÜKLER 2025",
+        "startDate": "2025-05-05T00:00:00.000Z",
+        "endDate": "2025-05-09T00:00:00.000Z"
+      },
+      {
+        "id": "db7ca0da-3ae4-48a8-92f4-d01e356d4c8d",
+        "name": "DORMEN MİNİKLER 2025",
+        "startDate": "2025-05-05T00:00:00.000Z",
+        "endDate": "2025-05-09T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "214b313d-5038-460f-b9ac-10cde285b67b",
+    "name": "TEMMUZ 2025",
+    "publicationDate": "2025-07-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "a45ec910-c6fc-452a-a449-9ae9c5452880",
+        "name": "GÜMÜŞ AT MÜESSESE 2025",
+        "startDate": "2025-05-09T00:00:00.000Z",
+        "endDate": "2025-06-13T00:00:00.000Z"
+      },
+      {
+        "id": "e5b22ddc-7509-4950-9abd-1d8e7ad75c70",
+        "name": "SERTBAY CUP 3",
+        "startDate": "2025-06-16T00:00:00.000Z",
+        "endDate": "2025-06-19T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "7d6b9072-d8ca-46a2-a7f2-ea5a726a2062",
+    "name": "EYLÜL 2025",
+    "publicationDate": "2025-09-02T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "7d46479e-8b3d-46f6-8d00-178a42a4d4ee",
+        "name": "VII. AK-GÜNLER İŞLETMELERİ SATRANÇ TURNUVASI KÜÇÜKLER KATEGORİSİ",
+        "startDate": "2025-08-09T00:00:00.000Z",
+        "endDate": "2025-08-10T00:00:00.000Z"
+      },
+      {
+        "id": "4369a224-6f37-475a-b988-1f79cd76a7ed",
+        "name": "VII. AK-GÜNLER İŞLETMELERİ SATRANÇ TURNUVASI BÜYÜKLER KATEGORİSİ",
+        "startDate": "2025-08-09T00:00:00.000Z",
+        "endDate": "2025-08-10T00:00:00.000Z"
+      },
+      {
+        "id": "cb230c0c-31f1-44d8-b378-af81f853084d",
+        "name": "VII. AK-GÜNLER İŞLETMELERİ SATRANÇ TURNUVASI MİNİKLER KATEGORİSİ",
+        "startDate": "2025-08-09T00:00:00.000Z",
+        "endDate": "2025-08-10T00:00:00.000Z"
+      },
+      {
+        "id": "48a067b1-6fd9-4f70-8aea-651bdc7dcd15",
+        "name": "111. KTAMS SATRANÇ TURNUVASI MİNİKLER KATEGORİSİ",
+        "startDate": "2025-08-11T00:00:00.000Z",
+        "endDate": "2025-08-15T00:00:00.000Z"
+      },
+      {
+        "id": "b172ddba-5daa-42bb-bd6b-49b91bc0cd18",
+        "name": "111. KTAMS SATRANÇ TURNUVASI KÜÇÜKLER KATEGORİSİ",
+        "startDate": "2025-08-11T00:00:00.000Z",
+        "endDate": "2025-08-15T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "977bc65e-5208-48bf-96ea-9f19d741770f",
+    "name": "EKİM 2025",
+    "publicationDate": "2025-10-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "2cc06baa-6d33-47c1-a0cd-e517d1e69122",
+        "name": "ŞAH-MAT 25. YIL",
+        "startDate": "2025-08-05T00:00:00.000Z",
+        "endDate": "2025-09-02T00:00:00.000Z"
+      },
+      {
+        "id": "70861185-7241-4b36-9634-60d1f297e1a3",
+        "name": "BİREYSEL FEDERASYON KUPASI 2025",
+        "startDate": "2025-09-05T00:00:00.000Z",
+        "endDate": "2025-09-14T00:00:00.000Z"
+      },
+      {
+        "id": "6f060979-0d90-44c9-9c4f-c5bfbef96db6",
+        "name": "SELİN KARAKAYA KADINLAR ŞAMPİYONASI 2025",
+        "startDate": "2025-09-19T00:00:00.000Z",
+        "endDate": "2025-09-28T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "c0dbad2c-e1ac-4e92-92d8-207ff1c7385d",
+    "name": "KASIM 2025",
+    "publicationDate": "2025-10-30T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "5bf94792-8924-4125-b06a-320e0e734a9c",
+        "name": "KKTC GENEL BİRİNCİLİĞİ 2025",
+        "startDate": "2025-10-03T00:00:00.000Z",
+        "endDate": "2025-10-19T00:00:00.000Z"
+      },
+      {
+        "id": "0dd85ba7-a89c-47c0-a8b3-8c8b9d13091e",
+        "name": "HAVVA ÖZAY ANI 2018 LİLER",
+        "startDate": "2025-10-25T00:00:00.000Z",
+        "endDate": "2025-10-26T00:00:00.000Z"
+      },
+      {
+        "id": "61bd8b6e-6b9b-4698-9465-6fa320bdcef2",
+        "name": "HAVVA ÖZAY ANI 2017 LİLER",
+        "startDate": "2025-10-25T00:00:00.000Z",
+        "endDate": "2025-10-26T00:00:00.000Z"
+      },
+      {
+        "id": "f4f28d42-ca67-4d8f-89ae-e370c7c92407",
+        "name": "HAVVA ÖZAY ANI 2016 LILAR",
+        "startDate": "2025-10-25T00:00:00.000Z",
+        "endDate": "2025-10-26T00:00:00.000Z"
+      },
+      {
+        "id": "eeecd945-fb76-4d4a-baee-961f33677b0b",
+        "name": "HAVVA ÖZAY ANI 2015 LİLER",
+        "startDate": "2025-10-25T00:00:00.000Z",
+        "endDate": "2025-10-26T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "c32034f0-398e-44a7-8a9e-33ca683f96ee",
+    "name": "ARALIK 2025",
+    "publicationDate": "2025-12-03T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "931a2f87-4a99-4aa9-a907-b9448b34f98e",
+        "name": "Havva ÖZAY Açık Kategori",
+        "startDate": "2025-09-30T00:00:00.000Z",
+        "endDate": "2025-11-11T00:00:00.000Z"
+      },
+      {
+        "id": "2aee29ed-432b-4e50-9cf7-5e634739fa91",
+        "name": "U14 ALTYAPI LİGİ",
+        "startDate": "2025-11-01T00:00:00.000Z",
+        "endDate": "2025-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "8eb0c9f6-ed18-476c-89be-814c8aa456fc",
+        "name": "U8 ALTYAPI LİGİ",
+        "startDate": "2025-11-01T00:00:00.000Z",
+        "endDate": "2025-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "8cae803b-7300-42ae-85d4-575e0f023b3f",
+        "name": "U10 ALTYAPI LİGİ",
+        "startDate": "2025-11-01T00:00:00.000Z",
+        "endDate": "2025-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "23cc5454-177d-49eb-bae3-a2fe1d0da02f",
+        "name": "U12 ALTYAPI LİGİ",
+        "startDate": "2025-11-01T00:00:00.000Z",
+        "endDate": "2025-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "0adb1c54-3a5e-4ae5-84f9-f6d0534cc494",
+        "name": "U16 ALTYAPI LİGİ",
+        "startDate": "2025-11-01T00:00:00.000Z",
+        "endDate": "2025-11-02T00:00:00.000Z"
+      },
+      {
+        "id": "c4c4b821-781e-42de-ad2c-5dfd9fa9befc",
+        "name": "Dağlı Yaşam İçin Markalar Minikler",
+        "startDate": "2025-11-15T00:00:00.000Z",
+        "endDate": "2025-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "9c8010c3-3279-481a-9a54-a3df5c1b969a",
+        "name": "Dağlı Yaşam İçin Markalar Küçükler",
+        "startDate": "2025-11-15T00:00:00.000Z",
+        "endDate": "2025-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "09cbb6a9-c061-4bb3-bf32-7e3201b80ba5",
+        "name": "Havva Özay Gençler",
+        "startDate": "2025-11-15T00:00:00.000Z",
+        "endDate": "2025-11-16T00:00:00.000Z"
+      },
+      {
+        "id": "23451ed3-b366-48c2-a3a7-d73b1e68d857",
+        "name": "YUSUF DEĞİRMENCİOĞLU KÜÇÜKLER",
+        "startDate": "2025-11-18T00:00:00.000Z",
+        "endDate": "2025-11-22T00:00:00.000Z"
+      },
+      {
+        "id": "93f96bdb-4d0a-4dad-b6fc-0309e8c60bfd",
+        "name": "YUSUF DEĞİRMENCİOĞLU MİNİKLER",
+        "startDate": "2025-11-18T00:00:00.000Z",
+        "endDate": "2025-11-22T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "b9962ba6-e9fe-4d8c-8495-163877bc130b",
+    "name": "OCAK 2026",
+    "publicationDate": "2026-01-07T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "63925c32-59af-4ca6-9601-38d43ae831f9",
+        "name": "SİYAH AT 2025",
+        "startDate": "2025-10-10T00:00:00.000Z",
+        "endDate": "2025-12-26T00:00:00.000Z"
+      },
+      {
+        "id": "a1de7c99-ef6b-48a4-8b70-3e248fa2c787",
+        "name": "III. GÜMÜŞ AT KULÜP KUPASI KÜÇÜKLER",
+        "startDate": "2025-11-07T00:00:00.000Z",
+        "endDate": "2025-12-12T00:00:00.000Z"
+      },
+      {
+        "id": "aee82732-64ed-4e4c-a23f-8f3f3b233130",
+        "name": "III. GÜMÜŞ AT KULÜP KUPASI MİNİKLER",
+        "startDate": "2025-11-07T00:00:00.000Z",
+        "endDate": "2025-12-12T00:00:00.000Z"
+      },
+      {
+        "id": "e68f391f-afab-4951-80e1-63133eae709f",
+        "name": "III. GÜMÜŞ AT KULÜP KUPASI BÜYÜKLER",
+        "startDate": "2025-11-07T00:00:00.000Z",
+        "endDate": "2025-12-12T00:00:00.000Z"
+      },
+      {
+        "id": "4852689a-da84-4089-9fe5-5ab76352b1d6",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 14 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "a66e4956-42e8-476c-9a18-8375cdbd5cf1",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 15 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "f6266839-b134-4306-a5ae-95606218b9e0",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 16 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "ab01fa77-41f8-4a38-8e89-0763d0375dd9",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 17 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "8e76f0fc-fab8-4f84-a74a-afca9df9682a",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 18 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "9d7c3197-0fd8-4bbc-88a9-8a9638a21fb3",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 7 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "15aa2bad-e05a-4d66-8191-0dfa32db53d9",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 8 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "6a59c302-531b-4ffa-abe9-7a4ce28e2596",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 10 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "95bfcf0b-4a5a-44f4-9c09-d134221037f4",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 11 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "cd95e306-54cf-4928-b095-7d845980ea95",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 12 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "cac7911d-7266-4944-8bf8-84cef5971596",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 13 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "1fe898ac-8907-42ca-8c02-c2bddd845ec3",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 14 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "3e67bbc3-a41f-45e3-badb-1db4755fa204",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 15 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "6503c8f3-6060-4e78-ac1a-f1754f4ad3f8",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 16 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "e1da8b7c-de0c-4be3-a945-faf808a9531c",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 17 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "7c8eaff8-7b06-4394-846b-ea4fffe9c7d1",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 18 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "00ddef1c-08c7-41d6-88e1-81d0471fef5e",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 9 YAŞ KIZLAR",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "99a274c7-450b-4a8f-85d5-5450e6e08391",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 7 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "5d46bec0-5694-45fc-ae7c-b0679243cc07",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 8 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "e7a411b4-d883-48f0-bddd-6bf701e2fff5",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 9 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "9071d561-762d-491f-b10d-3730c0ea335b",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 10 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "ca52f969-8316-46f5-8d7e-70f5c3dc140b",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 11 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "bcdb434c-cccd-411e-8fe9-b486568c67cf",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 12 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "451240f4-eca9-4b4f-a4e7-4bba2703d891",
+        "name": "YAŞ GRUPLARI ŞAMPİYONASI 13 YAŞ GENEL",
+        "startDate": "2025-11-30T00:00:00.000Z",
+        "endDate": "2025-12-05T00:00:00.000Z"
+      },
+      {
+        "id": "5c9e1690-3a4e-47a6-a24f-1fac7adee838",
+        "name": "EMEKTARLAR B KATEGORİSİ",
+        "startDate": "2025-12-13T00:00:00.000Z",
+        "endDate": "2025-12-14T00:00:00.000Z"
+      },
+      {
+        "id": "b47f04e2-3c8f-4e01-bc1b-501898afb733",
+        "name": "EMEKTARLAR A KATEGORİSİ",
+        "startDate": "2025-12-13T00:00:00.000Z",
+        "endDate": "2025-12-14T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cd66af3d-a5e0-4c65-a140-f262e3597163",
+    "name": "ŞUBAT 2026",
+    "publicationDate": "2026-01-31T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "0555d871-4345-491c-a999-c3a898ea2dd3",
+        "name": "ERGÜN SONEL 40 YAŞ VE ÜZERİ",
+        "startDate": "2026-01-10T00:00:00.000Z",
+        "endDate": "2026-01-11T00:00:00.000Z"
+      },
+      {
+        "id": "3e0b7d07-1a9b-493f-960d-b42c09235adf",
+        "name": "ERGÜN SONEL 60 YAŞ VE ÜZERİ",
+        "startDate": "2026-01-10T00:00:00.000Z",
+        "endDate": "2026-01-11T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "f25194de-7fec-4b28-9789-9eae75a0c5b0",
+    "name": "MART 2026",
+    "publicationDate": "2026-03-03T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "6af4a733-ede2-465f-8404-c268bddf1da6",
+        "name": "SELİN KARAKAYA ANI TURNUVASI 2026 A KATEGORİSİ",
+        "startDate": "2026-02-01T00:00:00.000Z",
+        "endDate": "2026-02-05T00:00:00.000Z"
+      },
+      {
+        "id": "8e1e214d-ab1f-477a-aedf-47866e804ade",
+        "name": "SELİN KARAKAYA ANI TURNUVASI 2026 B KATEGORİSİ",
+        "startDate": "2026-02-01T00:00:00.000Z",
+        "endDate": "2026-02-05T00:00:00.000Z"
+      },
+      {
+        "id": "97f397ef-5dd5-4bbc-a68d-5e5476f98ef5",
+        "name": "SELİN KARAKAYA ANI TURNUVASI 2026 C KATEGORİSİ",
+        "startDate": "2026-02-01T00:00:00.000Z",
+        "endDate": "2026-02-05T00:00:00.000Z"
+      },
+      {
+        "id": "ae1eb3c5-c802-4467-b6ee-8ac13e56aa3a",
+        "name": "SELİN KARAKAYA ANI TURNUVASI 2026 D KATEGORİSİ",
+        "startDate": "2026-02-01T00:00:00.000Z",
+        "endDate": "2026-02-05T00:00:00.000Z"
+      },
+      {
+        "id": "d146f936-963c-48d5-933a-991806713f80",
+        "name": "SÜHER BOZALANLAR AÇIK KATEGORİ",
+        "startDate": "2026-02-10T00:00:00.000Z",
+        "endDate": "2026-02-11T00:00:00.000Z"
+      },
+      {
+        "id": "e0abe3a0-d101-464b-8e9b-a135d660b3bf",
+        "name": "SÜHER BOZALANLAR YILDIZLAR",
+        "startDate": "2026-02-10T00:00:00.000Z",
+        "endDate": "2026-02-11T00:00:00.000Z"
+      },
+      {
+        "id": "cea4185c-e34f-4e46-b477-80691fcc13aa",
+        "name": "SÜHER BOZALANLAR KÜÇÜKLER",
+        "startDate": "2026-02-10T00:00:00.000Z",
+        "endDate": "2026-02-11T00:00:00.000Z"
+      },
+      {
+        "id": "4d2b2cce-0529-4e8a-a4ba-6e6bd5a55d73",
+        "name": "TELSİM GENÇLER ŞAMPİYONASI 2026",
+        "startDate": "2026-02-14T00:00:00.000Z",
+        "endDate": "2026-02-22T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "881827aa-8a58-4c92-9b38-a26ee210b323",
+    "name": "NİSAN 2026",
+    "publicationDate": "2026-04-23T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "729fb800-6aa2-4486-9bbf-2d044db0fd14",
+        "name": "II. LİG",
+        "startDate": "2026-02-28T00:00:00.000Z",
+        "endDate": "2026-03-15T00:00:00.000Z"
+      },
+      {
+        "id": "7f78b807-06fc-499c-96f8-194acb4e7e1b",
+        "name": "DR ÖZGÜN SOYER GENÇLER",
+        "startDate": "2026-03-07T00:00:00.000Z",
+        "endDate": "2026-03-08T00:00:00.000Z"
+      },
+      {
+        "id": "babb4dda-a199-432b-91b1-793128ab113a",
+        "name": "DR ÖZGÜN SOYER BÜYÜKLER",
+        "startDate": "2026-03-07T00:00:00.000Z",
+        "endDate": "2026-03-08T00:00:00.000Z"
+      },
+      {
+        "id": "9b0294b6-697b-4916-af21-b271824977b2",
+        "name": "DR ÖZGÜN SOYER MİNİKLER",
+        "startDate": "2026-03-07T00:00:00.000Z",
+        "endDate": "2026-03-08T00:00:00.000Z"
+      },
+      {
+        "id": "3498f5ed-c39e-410a-bbca-f1166815acb9",
+        "name": "DR ÖZGÜN SOYER KÜÇÜKLER",
+        "startDate": "2026-03-07T00:00:00.000Z",
+        "endDate": "2026-03-08T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "eeab16f0-dd88-4d69-a116-87ee8d4dc04c",
+    "name": "MAYIS 2026",
+    "publicationDate": "2026-05-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "8b78402e-a06d-43e2-b9e3-b1850c9d0f46",
+        "name": "GÜMÜŞ AT GELİŞİM 2026 KÜÇÜKLER",
+        "startDate": "2026-02-27T00:00:00.000Z",
+        "endDate": "2026-04-03T00:00:00.000Z"
+      },
+      {
+        "id": "e9166708-22cc-4570-b2a9-01f4e7eab714",
+        "name": "GÜMÜŞ AT GELİŞİM 2026 MİNİKLER",
+        "startDate": "2026-02-27T00:00:00.000Z",
+        "endDate": "2026-04-03T00:00:00.000Z"
+      },
+      {
+        "id": "4595afbc-e329-48ce-aabf-acfed8be57fa",
+        "name": "GÜMÜŞ AT GELİŞİM 2026 AÇIK KATEGORİ",
+        "startDate": "2026-02-27T00:00:00.000Z",
+        "endDate": "2026-04-03T00:00:00.000Z"
+      },
+      {
+        "id": "f4017997-c663-4146-b732-8eaee093348f",
+        "name": "I. LİG",
+        "startDate": "2026-02-28T00:00:00.000Z",
+        "endDate": "2026-04-05T00:00:00.000Z"
+      },
+      {
+        "id": "0f2d2384-d9af-4d1a-9030-1c722a51a526",
+        "name": "SÜPER LİG",
+        "startDate": "2026-02-28T00:00:00.000Z",
+        "endDate": "2026-04-05T00:00:00.000Z"
+      },
+      {
+        "id": "66b29f05-ddf7-4508-b98f-969b0665d58a",
+        "name": "DORMEN BİLİŞİM 2026 MİNİKLER",
+        "startDate": "2026-04-06T00:00:00.000Z",
+        "endDate": "2026-04-10T00:00:00.000Z"
+      },
+      {
+        "id": "120ba807-51bd-4184-bc6a-032ad84dd582",
+        "name": "DORMEN BİLİŞİM 2026 KÜÇÜKLER",
+        "startDate": "2026-04-06T00:00:00.000Z",
+        "endDate": "2026-04-10T00:00:00.000Z"
+      },
+      {
+        "id": "f352be04-9e17-453d-9a27-04dfd9f406c5",
+        "name": "DORMEN BİLİŞİM 2026 GENEL KATEGORİ",
+        "startDate": "2026-04-13T00:00:00.000Z",
+        "endDate": "2026-04-17T00:00:00.000Z"
+      },
+      {
+        "id": "a82311ae-aa3b-41d0-9396-d56c52b29a99",
+        "name": "GAZİ MAĞUSA BÖLGE BİRİNCİLİĞİ 2026",
+        "startDate": "2026-04-24T00:00:00.000Z",
+        "endDate": "2026-04-28T00:00:00.000Z"
+      },
+      {
+        "id": "a23e5a03-dd99-47f5-b946-8ee573913b4b",
+        "name": "GİRNE BÖLGE BİRİNCİLİĞİ 2026",
+        "startDate": "2026-04-24T00:00:00.000Z",
+        "endDate": "2026-04-26T00:00:00.000Z"
+      },
+      {
+        "id": "26f5d081-85d3-4bf4-87a2-ed38d6481a11",
+        "name": "GÜZELYURT-LEFKE BÖLGE BİRİNCİLİĞİ 2026",
+        "startDate": "2026-04-24T00:00:00.000Z",
+        "endDate": "2026-04-26T00:00:00.000Z"
+      },
+      {
+        "id": "fd5ee331-8481-4058-8c6d-e802ae526636",
+        "name": "İSKELE BÖLGE BİRİNCİLİĞİ 2026",
+        "startDate": "2026-04-24T00:00:00.000Z",
+        "endDate": "2026-04-26T00:00:00.000Z"
+      },
+      {
+        "id": "03b2fc28-b293-4a9c-bcbd-0c739b48adf3",
+        "name": "LEFKOŞA BÖLGE BİRİNCİLİĞİ 2026",
+        "startDate": "2026-04-24T00:00:00.000Z",
+        "endDate": "2026-04-26T00:00:00.000Z"
+      },
+      {
+        "id": "61f4ce67-77ef-4b86-bc2a-1da509b7513b",
+        "name": "TAKO GOLDEN HILL 2026 50+",
+        "startDate": "2026-04-25T00:00:00.000Z",
+        "endDate": "2026-04-26T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "25a19421-0dda-4013-ba53-be4e537433ca",
+    "name": "HAZİRAN 2026",
+    "publicationDate": "2026-06-11T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "cd2aa7dd-276e-4f09-b44e-c15731eea243",
+        "name": "KKSF 2026 BÖLGE FİNALLERİ",
+        "startDate": "2026-05-02T00:00:00.000Z",
+        "endDate": "2026-05-17T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "85228843-0388-4707-b871-9eef30453fd7",
+    "name": "TEMMUZ 2026",
+    "publicationDate": "2026-07-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "9d6b911c-1642-4561-9714-793150b0f544",
+        "name": " 4. Gümüş At Müessese Turnuvası",
+        "startDate": "2026-05-08T00:00:00.000Z",
+        "endDate": "2026-06-12T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "bf98c7e6-90c1-46fe-a323-6f9dbbe7c1d7",
+    "name": "AĞUSTOS 2026",
+    "publicationDate": "2026-08-01T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "dc44cb46-adc6-4ef1-aed2-995124af2c66",
+        "name": "4. KTAMS SATRANÇ TURNUVASI 2026 MİNİKLER",
+        "startDate": "2026-07-06T00:00:00.000Z",
+        "endDate": "2026-07-10T00:00:00.000Z"
+      },
+      {
+        "id": "bd318235-01d3-4675-96ed-536f45c8b18f",
+        "name": "4. KTAMS SATRANÇ TURNUVASI 2026 KÜÇÜKLER",
+        "startDate": "2026-07-06T00:00:00.000Z",
+        "endDate": "2026-07-11T00:00:00.000Z"
+      },
+      {
+        "id": "2507f095-d1e6-4150-bbe8-ed605c803e90",
+        "name": " ŞAH-MAT UKD SATRANÇ TURNUVASI",
+        "startDate": "2026-07-12T00:00:00.000Z",
+        "endDate": "2026-07-17T00:00:00.000Z"
+      },
+      {
+        "id": "9a040d8e-d2f6-432c-bcc4-22ce158b8c8d",
+        "name": "CLUB 216 SATRANÇ TURNUVASI BÜYÜKLER",
+        "startDate": "2026-07-18T00:00:00.000Z",
+        "endDate": "2026-07-19T00:00:00.000Z"
+      },
+      {
+        "id": "cebe3c68-3bfc-4e2c-adaf-9b365889bbf8",
+        "name": "CLUB 216 SATRANÇ TURNUVASI MİNİKLER",
+        "startDate": "2026-07-18T00:00:00.000Z",
+        "endDate": "2026-07-20T00:00:00.000Z"
+      },
+      {
+        "id": "ff3ad28b-476e-4113-96c4-cf966a731333",
+        "name": "CLUB 216 SATRANÇ TURNUVASI KÜÇÜKLER",
+        "startDate": "2026-07-18T00:00:00.000Z",
+        "endDate": "2026-07-21T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "44d1e63c-088c-4b61-abb5-a2305d5a1c0f",
+    "name": "EKİM 2026",
+    "publicationDate": "2026-10-04T00:00:00.000Z",
+    "tournaments": [
+      {
+        "id": "a1c129dc-6a68-44be-9ac2-5b5e59214fe5",
+        "name": "ARZUM 2026 KKTC SELİN KARAKAYA KADINLAR SATRANÇ ŞAMPİYONASI",
+        "startDate": "2026-09-05T00:00:00.000Z",
+        "endDate": "2026-09-13T00:00:00.000Z"
+      },
+      {
+        "id": "54cfd052-bd29-40f3-b579-585300fd173d",
+        "name": "KKSF 2026 XII. AHMET ALŞAN BİREYSEL FEDERASYON KUPASI",
+        "startDate": "2026-09-19T00:00:00.000Z",
+        "endDate": "2026-09-27T00:00:00.000Z"
+      }
+    ]
+  }
+]

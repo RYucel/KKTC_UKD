@@ -1,6 +1,6 @@
 name: Refresh UKD data
 
-# Rebuilds data/combined_ukd.parquet from kksf.org and commits any changes.
+# Rebuilds data/combined_ukd.parquet from kksfed.org and commits any changes.
 # Streamlit Community Cloud auto-redeploys when this pushes to main.
 
 on:
@@ -29,8 +29,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Rebuild dataset from kksf.org
+      - name: Rebuild dataset from kksfed.org
         run: python data_loader.py
+
+      - name: Export web json dataset
+        run: python export_web_data.py
 
       - name: Commit updated data if changed
         run: |
@@ -39,7 +42,7 @@ jobs:
           if git diff --quiet -- data/combined_ukd.parquet; then
             echo "No data changes."
           else
-            git add data/combined_ukd.parquet
-            git commit -m "Auto-refresh UKD data ($(date -u +%Y-%m-%d))"
+            git add data/combined_ukd.parquet data/publications_meta.json web/public/data/ukd.json
+            git commit -m "Auto-refresh UKD data from kksfed.org ($(date -u +%Y-%m-%d))"
             git push
           fi

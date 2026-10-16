@@ -1,240 +1,283 @@
 # -*- coding: utf-8 -*-
-"""KKSF UKD listelerini indir, ayrıştır ve tek bir zaman serisi tablosuna birleştir.
+"""KKSF UKD Veri Kazıyıcı ve Zaman Serisi Motoru (kksfed.org).
 
-Veri kaynağı: https://www.kksf.org/node/500  (aylık .xlsx UKD listeleri)
+Veri kaynağı: https://kksfed.org/ukd-lists
+API: https://api.kksfed.org/api/publications/public
 
-Her liste, oyuncu başına bir satır içerir. Oyuncu kimliği = LİSANS NU.
-Ayın UKD değeri = "GÜNCEL UKD". Tarih, dosya adından çıkarılır.
+Mayıs 2022'den günümüze tüm yayınlanmış UKD listelerini indirir,
+ayrıştırır, oyuncu kimliklerini eşleştirir ve tek bir Parquet/CSV zaman serisi
+tablosuna birleştirir.
 """
 from __future__ import annotations
 
 import io
 import json
 import re
-import unicodedata
-from datetime import date
+import sys
+import time
+from datetime import datetime
 from pathlib import Path
+
+if sys.stdout and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 import pandas as pd
 import requests
 
 # --- Sabitler ---------------------------------------------------------------
-LIST_PAGE = "https://www.kksf.org/node/500"
-BASE_URL = "https://www.kksf.org"
+API_BASE = "https://api.kksfed.org/api"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
 PROJECT_DIR = Path(__file__).resolve().parent
-RAW_DIR = PROJECT_DIR / "data" / "raw"
-COMBINED_PARQUET = PROJECT_DIR / "data" / "combined_ukd.parquet"
-COMBINED_CSV = PROJECT_DIR / "data" / "combined_ukd.csv"
+DATA_DIR = PROJECT_DIR / "data"
+RAW_DIR = DATA_DIR / "raw_kksfed"
+META_PATH = DATA_DIR / "publications_meta.json"
+COMBINED_PARQUET = DATA_DIR / "combined_ukd.parquet"
+COMBINED_CSV = DATA_DIR / "combined_ukd.csv"
 
-TR_MONTHS = {
-    "ocak": 1, "subat": 2, "şubat": 2, "mart": 3, "nisan": 4, "mayis": 5,
-    "mayıs": 5, "haziran": 6, "temmuz": 7, "agustos": 8, "ağustos": 8,
-    "eylul": 9, "eylül": 9, "ekim": 10, "kasim": 11, "kasım": 11,
-    "aralik": 12, "aralık": 12,
-}
-
-# Türkçe başlık -> standart sütun adı (alt-dize eşleşmesiyle)
-COLUMN_PATTERNS = [
-    ("LİSANS", "lisans_no"),
-    ("LISANS", "lisans_no"),
-    ("SOYADI", "ad_soyad"),
-    ("ÜNVAN", "unvan"),
-    ("UNVAN", "unvan"),
-    ("FİDE", "fide_no"),
-    ("FIDE", "fide_no"),
-    ("KULÜP", "kulup"),
-    ("KULUP", "kulup"),
-    ("DERNEK", "kulup"),
-    ("DOĞUM", "dogum_yili"),
-    ("DOGUM", "dogum_yili"),
-    ("MAÇ", "mac_sayisi"),
-    ("MAC", "mac_sayisi"),
-    ("ÖNCEK", "onceki_ukd"),
-    ("ONCEK", "onceki_ukd"),
-    ("GÜNCEL", "guncel_ukd"),
-    ("GUNCEL", "guncel_ukd"),
-    ("DURUM", "durum"),
-    ("DEĞİŞİM", "degisim"),
-    ("DEGISIM", "degisim"),
-]
+RAW_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # --- Yardımcılar ------------------------------------------------------------
-def _strip_accents_upper(text: str) -> str:
-    """Türkçe karakterleri sadeleştir + büyük harf (eşleştirme için)."""
-    text = str(text).strip()
-    repl = {"İ": "I", "ı": "i", "Ş": "S", "ş": "s", "Ğ": "G", "ğ": "g",
-            "Ü": "U", "ü": "u", "Ö": "O", "ö": "o", "Ç": "C", "ç": "c"}
-    for a, b in repl.items():
-        text = text.replace(a, b)
-    return text.upper()
-
-
-def parse_month_year(filename: str) -> tuple[int, int] | None:
-    """Dosya adından (yıl, ay) çıkar. Örn: '04-nisan_2026_ukd_listesi.xlsx'."""
-    name = filename.lower()
-    year_m = re.search(r"(20\d{2})", name)
-    if not year_m:
-        return None
-    year = int(year_m.group(1))
-    # 1) Baştaki sayı önekini dene (en güvenilir): '04-...', '12-_...'
-    lead = re.match(r"\s*(\d{1,2})\s*[-_]", name)
-    month = int(lead.group(1)) if lead and 1 <= int(lead.group(1)) <= 12 else None
-    # 2) Ay adından doğrula / tamamla
-    if month is None:
-        for mname, mnum in TR_MONTHS.items():
-            if mname in name:
-                month = mnum
-                break
-    if month is None:
-        return None
-    return year, month
-
-
-def fetch_list_links() -> list[dict]:
-    """node/500 sayfasını tarayıp tüm UKD .xlsx bağlantılarını döndür."""
-    r = requests.get(LIST_PAGE, headers=HEADERS, timeout=30)
+def fetch_publications_meta() -> list[dict]:
+    """https://api.kksfed.org/api/publications/public adresinden tüm dönemleri çek."""
+    url = f"{API_BASE}/publications/public"
+    r = requests.get(url, headers=HEADERS, timeout=25)
     r.raise_for_status()
-    hrefs = sorted(set(re.findall(r'href="([^"]+\.xlsx)"', r.text)))
+    pubs = r.json().get("publications", [])
+    pubs.sort(key=lambda x: x["publicationDate"])
+    META_PATH.write_text(json.dumps(pubs, ensure_ascii=False, indent=2), encoding="utf-8")
+    return pubs
+
+
+def get_cached_publications_meta() -> list[dict]:
+    """Yerelde varsa meta dosyasından oku, yoksa API'den çek."""
+    if META_PATH.exists():
+        try:
+            with open(META_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return fetch_publications_meta()
+
+
+def _safe_filename(pub: dict) -> str:
+    pdate = pub["publicationDate"][:10]
+    pname = pub["name"]
+    return re.sub(r"[^a-zA-Z0-9_\-]", "_", f"{pdate}_{pname}").strip("_") + ".xlsx"
+
+
+def download_publications(force: bool = False, delay: float = 0.5) -> list[tuple[dict, Path]]:
+    """Eksik (veya force=True ise tüm) dönemlerin Excel dosyalarını indir."""
+    pubs = fetch_publications_meta() if force or not META_PATH.exists() else get_cached_publications_meta()
     out = []
-    for href in hrefs:
-        low = href.lower()
-        if not any(k in low for k in ("ukd", "liste", "kesin")):
+
+    for idx, pub in enumerate(pubs, 1):
+        pid = pub["id"]
+        fname = _safe_filename(pub)
+        dest = RAW_DIR / fname
+
+        if dest.exists() and dest.stat().st_size > 10000 and not force:
+            out.append((pub, dest))
             continue
-        url = href if href.startswith("http") else BASE_URL + href
-        fname = url.rsplit("/", 1)[-1]
-        ym = parse_month_year(fname)
-        if ym is None:
-            continue
-        year, month = ym
-        out.append({"url": url, "filename": fname, "year": year,
-                    "month": month, "date": date(year, month, 1)})
-    out.sort(key=lambda d: d["date"])
+
+        url = f"{API_BASE}/publications/public/{pid}/rankings/export"
+        print(f"[{idx}/{len(pubs)}] İndiriliyor: {pub['name']} ({pub['publicationDate'][:10]})...", flush=True)
+
+        for attempt in range(5):
+            try:
+                resp = requests.get(url, headers=HEADERS, timeout=45)
+                if resp.status_code == 429:
+                    wait_sec = 3 * (attempt + 1)
+                    print(f"   [429 Hız Sınırı] {wait_sec}s bekleniyor...", flush=True)
+                    time.sleep(wait_sec)
+                    continue
+                resp.raise_for_status()
+                dest.write_bytes(resp.content)
+                out.append((pub, dest))
+                break
+            except Exception as e:
+                if attempt == 4:
+                    print(f"   [HATA] {pub['name']} indirilemedi: {e}", flush=True)
+                time.sleep(2)
+
+        time.sleep(delay)
+
     return out
 
 
-def download_lists(force: bool = False) -> list[dict]:
-    """Eksik (veya force ise tüm) listeleri data/raw/ içine indir."""
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    links = fetch_list_links()
-    for item in links:
-        dest = RAW_DIR / item["filename"]
-        item["path"] = dest
-        if dest.exists() and not force:
-            continue
-        resp = requests.get(item["url"], headers=HEADERS, timeout=120)
-        resp.raise_for_status()
-        dest.write_bytes(resp.content)
-    return links
+def parse_publication_file(dest: Path, pub: dict, period_index: int) -> pd.DataFrame:
+    """Tek bir Excel dosyasını standart sütunlara dönüştür."""
+    # Satır 0 başlık ("KKSF | Sporcu Takip Uygulaması"), Satır 1 sütun isimleri
+    raw = pd.read_excel(dest, header=1)
 
+    col_rename = {
+        "S.N.": "sira_no",
+        "ÜNVAN": "unvan",
+        "LİSANS NU.": "lisans_no",
+        "SOYADI ADI": "ad_soyad",
+        "C.": "cinsiyet",
+        "FİDE NO": "fide_no",
+        "KULÜP/DERNEK": "kulup",
+        "DOĞUM YILI": "dogum_yili",
+        "MAÇ SAYISI": "donem_mac_sayisi",
+        "KÜMÜLATİF MAÇ SAYISI": "kumulatif_mac_sayisi",
+        "BİR ÖNCEKİ UKD": "onceki_ukd",
+        "GÜNCEL UKD": "guncel_ukd",
+        "DURUMU": "durum",
+        "DEĞİŞİM": "degisim",
+    }
+    df = raw.rename(columns=col_rename)
 
-def _find_header_row(raw: pd.DataFrame) -> int:
-    """'LİSANS' içeren satırı başlık satırı olarak bul."""
-    for i in range(min(10, len(raw))):
-        row = " ".join(_strip_accents_upper(c) for c in raw.iloc[i].astype(str))
-        if "LISANS" in row:
-            return i
-    return 1  # varsayılan: ikinci satır
-
-
-def parse_list_file(path: Path, year: int, month: int) -> pd.DataFrame:
-    """Tek bir UKD .xlsx dosyasını standart sütunlu DataFrame'e çevir."""
-    raw = pd.read_excel(path, header=None, dtype=str)
-    hrow = _find_header_row(raw)
-    headers = raw.iloc[hrow].tolist()
-
-    colmap = {}
-    for idx, h in enumerate(headers):
-        hu = _strip_accents_upper(h)
-        for pat, std in COLUMN_PATTERNS:
-            if _strip_accents_upper(pat) in hu:
-                colmap[idx] = std
-                break
-
-    data = raw.iloc[hrow + 1:].reset_index(drop=True)
-    df = pd.DataFrame()
-    for idx, std in colmap.items():
-        if std not in df.columns:  # ilk eşleşeni kullan
-            df[std] = data[idx]
-
-    if "lisans_no" not in df.columns or "guncel_ukd" not in df.columns:
+    # Lisans no temizliği (boşlukları at, .0 uzantısını kaldır, baştaki sıfırları temizle)
+    if "lisans_no" not in df.columns:
         return pd.DataFrame()
 
-    # Temizlik
     df = df.dropna(subset=["lisans_no"])
-    df["lisans_no"] = df["lisans_no"].astype(str).str.strip()
+    df["lisans_no"] = df["lisans_no"].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)
     df = df[df["lisans_no"].str.match(r"^\d+$", na=False)].copy()
     df["lisans_no"] = df["lisans_no"].str.lstrip("0").replace("", "0")
 
-    for col in ["guncel_ukd", "onceki_ukd", "mac_sayisi", "degisim", "dogum_yili"]:
+    # Sayısal alanlar
+    numeric_cols = [
+        "sira_no", "guncel_ukd", "onceki_ukd", "degisim",
+        "donem_mac_sayisi", "kumulatif_mac_sayisi", "dogum_yili",
+    ]
+    for col in numeric_cols:
         if col in df.columns:
-            df[col] = pd.to_numeric(df[col].astype(str).str.replace(",", ".", regex=False),
-                                    errors="coerce")
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
 
-    for col in ["ad_soyad", "kulup", "unvan", "durum"]:
+    # Metin alanları
+    text_cols = ["unvan", "ad_soyad", "cinsiyet", "kulup", "durum"]
+    for col in text_cols:
         if col in df.columns:
-            df[col] = df[col].astype(str).str.strip().replace({"nan": "", "-": ""})
+            df[col] = df[col].astype(str).str.strip().replace({"nan": "", "None": "", "-": ""})
 
-    df["year"] = year
-    df["month"] = month
-    df["date"] = pd.Timestamp(year=year, month=month, day=1)
-    df["source_file"] = path.name
+    # Dönem ve zaman bilgileri
+    dt = pd.to_datetime(pub["publicationDate"])
+    df["period_id"] = pub["id"]
+    df["period_name"] = pub["name"]
+    df["date"] = dt
+    df["year"] = dt.year
+    df["month"] = dt.month
+    df["period_index"] = period_index
+    df["tournaments_count"] = len(pub.get("tournaments", []))
+    df["tournaments_str"] = ", ".join(t.get("name", "") for t in pub.get("tournaments", []))
+
     return df
 
 
 def build_dataset(force_download: bool = False) -> pd.DataFrame:
-    """Tüm listeleri indirip tek uzun tabloya birleştir ve önbelleğe yaz."""
-    links = download_lists(force=force_download)
+    """Tüm dönem dosyalarını indirir (gerekirse), ayrıştırır ve tek tablo olarak kaydeder."""
+    items = download_publications(force=force_download)
     frames = []
-    for item in links:
+
+    print(f"Toplam {len(items)} dosya ayrıştırılıyor...", flush=True)
+    for idx, (pub, dest) in enumerate(items, 1):
         try:
-            f = parse_list_file(item["path"], item["year"], item["month"])
+            f = parse_publication_file(dest, pub, period_index=idx)
             if not f.empty:
                 frames.append(f)
-        except Exception as e:  # noqa: BLE001
-            print(f"  ! {item['filename']} ayrıştırılamadı: {e}")
+        except Exception as e:
+            print(f"  ! {dest.name} ayrıştırılamadı: {e}", flush=True)
+
     if not frames:
-        raise RuntimeError("Hiç liste ayrıştırılamadı.")
+        raise RuntimeError("Hiçbir liste ayrıştırılamadı!")
 
     combined = pd.concat(frames, ignore_index=True)
+
+    # Tekilleştirme & sıralama
     combined = combined.drop_duplicates(subset=["lisans_no", "date"], keep="last")
     combined = combined.sort_values(["lisans_no", "date"]).reset_index(drop=True)
 
-    COMBINED_PARQUET.parent.mkdir(parents=True, exist_ok=True)
+    # Oyuncunun ilk aktif olduğu dönemden bugüne kümülatif rating değişimi
+    # (Önemli: UKD > 0 olan ilk gözlem baz alınır)
+    rated_mask = combined["guncel_ukd"] > 0
+    first_ratings = (
+        combined[rated_mask]
+        .groupby("lisans_no")["guncel_ukd"]
+        .first()
+        .rename("ilk_ukd")
+    )
+    combined = combined.merge(first_ratings, on="lisans_no", how="left")
+    combined["toplam_degisim"] = combined["guncel_ukd"] - combined["ilk_ukd"]
+
+    # Gerçek UKD sırası: Excel'deki "S.N." alfabetik sıradır, sıralama değildir.
+    # Resmi site (API) ile aynı tanım: o dönemde UKD > 0 olanlar arasında
+    # UKD'ye göre azalan sıra (eşitlikte aynı sıra).
+    combined["ukd_sirasi"] = 0
+    combined.loc[rated_mask, "ukd_sirasi"] = (
+        combined[rated_mask]
+        .groupby("date")["guncel_ukd"]
+        .rank(method="min", ascending=False)
+        .astype(int)
+    )
+
+    # Disk önbelleğine yaz
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
     try:
         combined.to_parquet(COMBINED_PARQUET, index=False)
-    except Exception:  # pyarrow yoksa
-        pass
+    except Exception as e:
+        print(f"Parquet kaydedilemedi: {e}", flush=True)
+
     combined.to_csv(COMBINED_CSV, index=False, encoding="utf-8-sig")
+    print(f"Veri seti başarıyla oluşturuldu: {len(combined):,} satır, "
+          f"{combined['lisans_no'].nunique():,} oyuncu, {combined['date'].nunique()} dönem.", flush=True)
     return combined
 
 
 def load_dataset(refresh: bool = False) -> pd.DataFrame:
-    """Önbellekten yükle; yoksa veya refresh ise yeniden oluştur."""
+    """Yerel önbellekten (Parquet/CSV) yükle; yoksa veya refresh=True ise oluştur."""
     if not refresh:
         if COMBINED_PARQUET.exists():
             try:
-                return pd.read_parquet(COMBINED_PARQUET)
+                df = pd.read_parquet(COMBINED_PARQUET)
+                df["date"] = pd.to_datetime(df["date"])
+                return df
             except Exception:
                 pass
         if COMBINED_CSV.exists():
-            return pd.read_csv(COMBINED_CSV, dtype={"lisans_no": str})
+            df = pd.read_csv(COMBINED_CSV, dtype={"lisans_no": str})
+            df["date"] = pd.to_datetime(df["date"])
+            return df
+
     return build_dataset(force_download=refresh)
 
 
-def player_label(df: pd.DataFrame) -> pd.DataFrame:
-    """Her lisans_no için en güncel ad/kulüp ile etiket tablosu."""
+def player_catalog(df: pd.DataFrame) -> pd.DataFrame:
+    """Oyuncuların en güncel profil bilgilerini ve arama etiketlerini içeren katalog."""
     latest = df.sort_values("date").groupby("lisans_no").tail(1)
-    latest = latest.assign(
-        label=lambda d: d["ad_soyad"].fillna("?") + "  (" + d["lisans_no"] + ")")
-    return latest[["lisans_no", "label", "ad_soyad", "kulup"]].reset_index(drop=True)
+    
+    # En yüksek UKD
+    max_ukd = df[df["guncel_ukd"] > 0].groupby("lisans_no")["guncel_ukd"].max().rename("zirve_ukd")
+    active_periods = df[df["guncel_ukd"] > 0].groupby("lisans_no")["date"].count().rename("aktif_donem_sayisi")
+    
+    latest = latest.merge(max_ukd, on="lisans_no", how="left").merge(active_periods, on="lisans_no", how="left")
+    latest["zirve_ukd"] = latest["zirve_ukd"].fillna(0).astype(int)
+    latest["aktif_donem_sayisi"] = latest["aktif_donem_sayisi"].fillna(0).astype(int)
+
+    # Arama etiketi: AD SOYAD (Lisans: XXX | Kulüp | UKD)
+    def make_label(row):
+        name = row["ad_soyad"] if row["ad_soyad"] else "Bilinmeyen"
+        ukd_str = f" • UKD: {int(row['guncel_ukd'])}" if row["guncel_ukd"] > 0 else " • Derecesiz"
+        club_str = f" • {row['kulup']}" if row["kulup"] else ""
+        title_str = f"[{row['unvan']}] " if row["unvan"] else ""
+        return f"{title_str}{name} (No: {row['lisans_no']}{ukd_str}{club_str})"
+
+    latest["label"] = latest.apply(make_label, axis=1)
+    cols = [
+        "lisans_no", "label", "ad_soyad", "kulup", "unvan",
+        "cinsiyet", "dogum_yili", "guncel_ukd", "zirve_ukd",
+        "kumulatif_mac_sayisi", "aktif_donem_sayisi", "durum"
+    ]
+    return latest[cols].reset_index(drop=True)
 
 
 if __name__ == "__main__":
-    print("UKD listeleri indiriliyor ve birleştiriliyor...")
+    print("KKSF UKD Veri Seti İnşa Ediliyor...")
     data = build_dataset(force_download=False)
-    print(f"Toplam {len(data):,} satır, {data['lisans_no'].nunique():,} oyuncu, "
-          f"{data['date'].nunique()} ay.")
-    print("Aylar:", sorted(data['date'].dt.strftime('%Y-%m').unique()))
+    print(f"Toplam {len(data):,} satır, {data['lisans_no'].nunique():,} oyuncu.")
+    print("Dönemler:", sorted(data["period_name"].unique()))
