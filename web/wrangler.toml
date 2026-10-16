@@ -1,3 +1,7 @@
 name = "kktc-ukd-web"
 pages_build_output_dir = "dist"
 compatibility_date = "2024-10-01"
+
+[[kv_namespaces]]
+binding = "UKD_COUNTER_KV"
+id = "9f7f66da001f40a6bddf6d51a0265626"

@@ -8,8 +8,9 @@ import {
   Archive,
   RefreshCw,
   ExternalLink,
+  Eye,
 } from 'lucide-react';
-import { UkdDataset, PlayerSummary, TabType } from './types';
+import { UkdDataset, TabType } from './types';
 import { buildPlayerSummaries } from './utils';
 import { PlayerView } from './components/PlayerView';
 import { CompareView } from './components/CompareView';
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('player');
   const [selectedPlayerId, setSelectedPlayerId] = useState<string | null>(null);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('/data/ukd.json')
@@ -40,6 +42,49 @@ export const App: React.FC = () => {
         setError(err.message || 'Veritabanı yüklenirken bir sorun oluştu.');
         setLoading(false);
       });
+  }, []);
+
+  // Visitor Counter Effect (Cloudflare Pages Function + KV with multi-tier fallback)
+  useEffect(() => {
+    let cancelled = false;
+    async function trackVisit() {
+      try {
+        const res = await fetch('/api/counter?mode=hit', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (typeof data?.count === 'number' && data.source === 'kv') {
+            if (!cancelled) setVisitorCount(data.count);
+            return;
+          }
+        }
+      } catch {
+        // Fallback below
+      }
+
+      try {
+        const ext = await fetch('https://api.counterapi.dev/v1/kktc-ukd-web/visits/up');
+        if (ext.ok) {
+          const data = await ext.json();
+          if (typeof data?.count === 'number') {
+            if (!cancelled) setVisitorCount(data.count);
+            return;
+          }
+        }
+      } catch {
+        // Local storage fallback
+      }
+
+      const localKey = 'kksf_ukd_local_visits';
+      const prev = parseInt(localStorage.getItem(localKey) || '1', 10) || 1;
+      const next = prev + 1;
+      localStorage.setItem(localKey, String(next));
+      if (!cancelled) setVisitorCount(next);
+    }
+
+    trackVisit();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const summaries = useMemo(() => {
@@ -61,7 +106,7 @@ export const App: React.FC = () => {
           UKD Veritabanı Yükleniyor...
         </div>
         <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-          49 dönem ve 1.700+ sporcu verisi hazırlanıyor
+          49 dönem ve 1.722 sporcu verisi hazırlanıyor
         </div>
       </div>
     );
@@ -221,22 +266,20 @@ export const App: React.FC = () => {
         {activeTab === 'archive' && <ArchiveView dataset={dataset} />}
       </main>
 
-      {/* Footer */}
-      <footer
-        style={{
-          marginTop: 60,
-          paddingTop: 24,
-          borderTop: '1px solid var(--border-subtle)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 12,
-          fontSize: '0.82rem',
-          color: 'var(--text-muted)',
-        }}
-      >
-        <div>
+      {/* Footer with Centered Visitor Counter */}
+      <footer className="app-footer">
+        <div className="visitor-counter-pill" title="Toplam Site Ziyaretçi Sayısı">
+          <span className="live-dot" />
+          <span className="visitor-counter-label">
+            <Eye size={15} color="var(--accent-sky)" />
+            Toplam Ziyaretçi
+          </span>
+          <span className="visitor-counter-value">
+            {visitorCount !== null ? visitorCount.toLocaleString('tr-TR').padStart(5, '0') : '•••'}
+          </span>
+        </div>
+
+        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
           KKSF UKD Progress Explorer • Veri Kaynağı:{' '}
           <a
             href="https://kksfed.org/ukd-lists"
@@ -245,9 +288,9 @@ export const App: React.FC = () => {
             style={{ color: 'var(--accent-sky)', textDecoration: 'none' }}
           >
             Kuzey Kıbrıs Satranç Federasyonu (kksfed.org)
-          </a>
+          </a>{' '}
+          • Resmi UKD listeleri zaman serisi arşivi (Mayıs 2022 – Ekim 2026)
         </div>
-        <div>Resmi UKD listeleri zaman serisi arşivi ve performans analitiği</div>
       </footer>
     </div>
   );
