@@ -196,6 +196,17 @@ def build_dataset(force_download: bool = False) -> pd.DataFrame:
     # Oyuncunun ilk aktif olduğu dönemden bugüne kümülatif rating değişimi
     # (Önemli: UKD > 0 olan ilk gözlem baz alınır)
     rated_mask = combined["guncel_ukd"] > 0
+
+    # Excel dosyalarındaki "DEĞİŞİM" sütunu sayı değil "↑"/"↓" oku içerdiği için
+    # dönemsel UKD değişimini ardışık dereceli dönemlerin farkından hesapla:
+    combined["degisim"] = 0.0
+    period_diff = combined[rated_mask].groupby("lisans_no")["guncel_ukd"].diff()
+    first_period_fallback = combined.loc[rated_mask].apply(
+        lambda r: (r["guncel_ukd"] - r["onceki_ukd"]) if r["onceki_ukd"] > 0 else 0.0,
+        axis=1,
+    )
+    combined.loc[rated_mask, "degisim"] = period_diff.fillna(first_period_fallback).round(1)
+
     first_ratings = (
         combined[rated_mask]
         .groupby("lisans_no")["guncel_ukd"]

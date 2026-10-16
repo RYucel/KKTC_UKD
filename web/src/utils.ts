@@ -27,18 +27,29 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
     let latestChange = 0;
     let peakUkd = 0;
     let peakPeriodIndex = -1;
+    let minUkd = 999999;
     let firstUkd = 0;
     let firstPeriodIndex = -1;
     let latestRank = 0;
     let bestRank = 999999;
     let careerGames = 0;
     let ratedCount = 0;
+    let changesCount = 0;
     let currentClub = '';
+    let prevRatedUkd = 0;
 
     for (let i = 0; i < p.u.length; i++) {
       const u = p.u[i];
       if (u !== null && u > 0) {
         ratedCount++;
+        // Ensure p.d[i] is populated if missing
+        if ((p.d[i] === null || p.d[i] === 0) && prevRatedUkd > 0 && u !== prevRatedUkd) {
+          p.d[i] = Math.round((u - prevRatedUkd) * 10) / 10;
+        }
+        if ((p.d[i] ?? 0) !== 0) {
+          changesCount++;
+        }
+        prevRatedUkd = u;
         latestUkd = u;
         latestChange = p.d[i] ?? 0;
         if (firstPeriodIndex === -1) {
@@ -48,6 +59,9 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
         if (u > peakUkd) {
           peakUkd = u;
           peakPeriodIndex = i;
+        }
+        if (u < minUkd) {
+          minUkd = u;
         }
       }
       const r = p.r[i];
@@ -65,6 +79,7 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
     }
 
     if (bestRank === 999999) bestRank = 0;
+    if (minUkd === 999999) minUkd = 0;
     const totalChange = firstUkd > 0 ? Math.round((latestUkd - firstUkd) * 10) / 10 : 0;
     const rawSearch = `${p.n} ${p.id} ${currentClub} ${p.t}`;
     const searchStr = normalizeTr(rawSearch);
@@ -75,6 +90,7 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
       latestChange,
       peakUkd,
       peakPeriodIndex,
+      minUkd,
       firstUkd,
       firstPeriodIndex,
       totalChange,
@@ -82,6 +98,7 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
       latestRank,
       bestRank,
       ratedCount,
+      changesCount,
       currentClub,
       searchStr,
     };

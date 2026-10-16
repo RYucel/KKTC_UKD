@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
-import { Search, TrendingUp, Calendar, X, UserCheck } from 'lucide-react';
+import { Search, TrendingUp, Calendar, X, UserCheck, Info } from 'lucide-react';
 import { UkdDataset, PlayerSummary, MetricType } from '../types';
 import { formatUkd, formatDelta, normalizeTr } from '../utils';
 
@@ -24,15 +24,15 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
   const [customStartIdx, setCustomStartIdx] = useState(0);
   const [customEndIdx, setCustomEndIdx] = useState(Math.max(0, dataset.periods.length - 1));
 
-  // Top active players with rich game history for quick picks & default selection
+  // Top active players who actually have dynamic rating changes across periods
   const featuredPlayers = useMemo(() => {
     return [...summaries]
-      .filter((s) => s.careerGames >= 15 && s.ratedCount >= 10)
+      .filter((s) => s.changesCount >= 10 && s.ratedCount >= 15)
       .sort((a, b) => b.latestUkd - a.latestUkd)
       .slice(0, 6);
   }, [summaries]);
 
-  // Default to the highest-rated active player with rich match history if none selected
+  // Default to the highest-rated player with dynamic rating progression
   const activeSummary = useMemo(() => {
     if (selectedId) {
       const found = summaries.find((s) => s.player.id === selectedId);
@@ -87,6 +87,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
     latestChange,
     peakUkd,
     peakPeriodIndex,
+    minUkd,
     firstUkd,
     firstPeriodIndex,
     totalChange,
@@ -94,6 +95,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
     latestRank,
     bestRank,
     ratedCount,
+    changesCount,
     currentClub,
   } = activeSummary;
 
@@ -122,26 +124,153 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
     [periodIndices, dataset.periods]
   );
 
-  // ECharts Option
+  // Check rating spread in displayed window
+  const windowStats = useMemo(() => {
+    const validUkds = periodIndices
+      .map((i) => player.u[i])
+      .filter((v): v is number => v !== null && v > 0);
+    const nonZeroDeltas = periodIndices
+      .map((i) => player.d[i] ?? 0)
+      .filter((d) => d !== 0);
+
+    const minU = validUkds.length ? Math.min(...validUkds) : 0;
+    const maxU = validUkds.length ? Math.max(...validUkds) : 0;
+    return {
+      minU,
+      maxU,
+      spread: maxU - minU,
+      changePeriodsInWindow: nonZeroDeltas.length,
+    };
+  }, [periodIndices, player]);
+
+  // ECharts Option with tight dynamic Y-axis scaling and rich data point markers
   const chartOption = useMemo(() => {
     const dates = displayedPeriods.map((p) => p.name);
-    let seriesData: (number | null)[] = [];
+    let seriesData: any[] = [];
     let yAxisName = 'UKD Puanı';
     let isInverse = false;
+    let yMin: number | undefined = undefined;
+    let yMax: number | undefined = undefined;
 
     if (metric === 'ukd') {
-      seriesData = periodIndices.map((i) => (player.u[i] && player.u[i]! > 0 ? player.u[i] : null));
       yAxisName = 'UKD Puanı';
+      const validVals = periodIndices
+        .map((i) => player.u[i])
+        .filter((v): v is number => v !== null && v > 0);
+
+      if (validVals.length > 0) {
+        const minV = Math.min(...validVals);
+        const maxV = Math.max(...validVals);
+        const spread = maxV - minV;
+        if (spread === 0) {
+          yMin = Math.max(0, minV - 20);
+          yMax = maxV + 20;
+        } else {
+          const pad = Math.max(4, Math.ceil(spread * 0.14));
+          yMin = Math.max(0, Math.floor(minV - pad));
+          yMax = Math.ceil(maxV + pad);
+        }
+      }
+
+      seriesData = periodIndices.map((i) => {
+        const u = player.u[i];
+        const d = player.d[i] ?? 0;
+        if (!u || u <= 0) return null;
+        const changed = d !== 0;
+        return {
+          value: u,
+          symbolSize: changed ? 10 : 5,
+          itemStyle: changed
+            ? {
+                color: d > 0 ? '#10b981' : '#f43f5e',
+                borderColor: '#ffffff',
+                borderWidth: 2,
+              }
+            : {
+                color: '#38bdf8',
+              },
+          label: changed
+            ? {
+                show: true,
+                position: d > 0 ? 'top' : 'bottom',
+                formatter: () => `${Math.round(u)} (${d > 0 ? '+' : ''}${d})`,
+                color: d > 0 ? '#34d399' : '#fb7185',
+                fontSize: 10,
+                fontWeight: 700,
+                fontFamily: 'JetBrains Mono',
+              }
+            : { show: false },
+        };
+      });
     } else if (metric === 'change') {
-      seriesData = periodIndices.map((i) => player.d[i] ?? 0);
-      yAxisName = 'Dönemsel Değişim';
+      yAxisName = 'Dönemsel UKD Değişimi (Δ)';
+      const deltas = periodIndices.map((i) => player.d[i] ?? 0);
+      const minD = Math.min(0, ...deltas);
+      const maxD = Math.max(0, ...deltas);
+      if (minD === 0 && maxD === 0) {
+        yMin = -10;
+        yMax = 10;
+      } else {
+        const span = Math.max(Math.abs(minD), Math.abs(maxD), 5);
+        const pad = Math.ceil(span * 0.22);
+        yMin = minD < 0 ? Math.floor(minD - pad) : -Math.max(3, Math.ceil(pad * 0.4));
+        yMax = maxD > 0 ? Math.ceil(maxD + pad) : Math.max(3, Math.ceil(pad * 0.4));
+      }
+
+      seriesData = periodIndices.map((i) => {
+        const val = player.d[i] ?? 0;
+        const isPos = val > 0;
+        const isNeg = val < 0;
+        return {
+          value: val,
+          itemStyle: {
+            color: isPos ? '#10b981' : isNeg ? '#f43f5e' : 'rgba(148, 163, 184, 0.22)',
+            borderRadius: isPos ? [4, 4, 0, 0] : isNeg ? [0, 0, 4, 4] : [2, 2, 2, 2],
+          },
+          label:
+            val !== 0
+              ? {
+                  show: true,
+                  position: isPos ? 'top' : 'bottom',
+                  formatter: () => (val > 0 ? `+${val}` : `${val}`),
+                  color: isPos ? '#10b981' : '#f43f5e',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  fontFamily: 'JetBrains Mono',
+                }
+              : { show: false },
+        };
+      });
     } else if (metric === 'rank') {
-      seriesData = periodIndices.map((i) => (player.r[i] && player.r[i]! > 0 ? player.r[i] : null));
       yAxisName = 'Liste Sırası (1 = En Üst)';
       isInverse = true;
+      const validRanks = periodIndices
+        .map((i) => player.r[i])
+        .filter((v): v is number => v !== null && v > 0);
+      if (validRanks.length > 0) {
+        const minR = Math.min(...validRanks);
+        const maxR = Math.max(...validRanks);
+        const spread = maxR - minR;
+        const pad = Math.max(2, Math.ceil(spread * 0.15));
+        yMin = Math.max(1, minR - pad);
+        yMax = maxR + pad;
+      }
+      seriesData = periodIndices.map((i) => (player.r[i] && player.r[i]! > 0 ? player.r[i] : null));
     } else if (metric === 'games') {
-      seriesData = periodIndices.map((i) => player.k[i] ?? 0);
-      yAxisName = 'Kümülatif Maç';
+      yAxisName = 'Kümülatif Maç Sayısı';
+      const validGames = periodIndices.map((i) => player.k[i] ?? 0);
+      const minG = Math.min(...validGames);
+      const maxG = Math.max(...validGames);
+      const spread = maxG - minG;
+      if (spread === 0) {
+        yMin = Math.max(0, minG - 5);
+        yMax = maxG + 5;
+      } else {
+        const pad = Math.max(2, Math.ceil(spread * 0.12));
+        yMin = Math.max(0, minG - pad);
+        yMax = maxG + pad;
+      }
+      seriesData = validGames;
     }
 
     return {
@@ -150,7 +279,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
         trigger: 'axis',
         confine: true,
         backgroundColor: 'rgba(13, 20, 34, 0.96)',
-        borderColor: 'rgba(56, 189, 248, 0.4)',
+        borderColor: 'rgba(56, 189, 248, 0.45)',
         textStyle: { color: '#f8fafc', fontSize: 13, fontFamily: 'Plus Jakarta Sans' },
         formatter: (params: any) => {
           if (!params || !params.length) return '';
@@ -159,25 +288,25 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           const periodObj = dataset.periods[periodIdx];
           if (!periodObj) return '';
           const ukdVal = player.u[periodIdx];
-          const deltaVal = player.d[periodIdx];
+          const deltaVal = player.d[periodIdx] ?? 0;
           const rankVal = player.r[periodIdx];
           const matchVal = player.m[periodIdx];
           const cumMatchVal = player.k[periodIdx];
           const tournaments = periodObj.tournaments || [];
 
           return `
-            <div style="min-width: 210px; max-width: 320px; padding: 4px; white-space: normal;">
+            <div style="min-width: 220px; max-width: 330px; padding: 4px; white-space: normal;">
               <div style="font-weight: 700; color: #38bdf8; margin-bottom: 6px;">${periodObj.name} (${periodObj.date})</div>
               <div style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 3px;">
-                <span style="color: #94a3b8;">UKD:</span>
+                <span style="color: #94a3b8;">UKD Puanı:</span>
                 <span style="font-family: JetBrains Mono; font-weight: 700;">${formatUkd(ukdVal)}</span>
               </div>
               <div style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 3px;">
-                <span style="color: #94a3b8;">Değişim:</span>
-                <span style="font-family: JetBrains Mono; font-weight: 700; color: ${(deltaVal ?? 0) > 0 ? '#10b981' : (deltaVal ?? 0) < 0 ? '#f43f5e' : '#94a3b8'}">${formatDelta(deltaVal)}</span>
+                <span style="color: #94a3b8;">Dönem Değişimi:</span>
+                <span style="font-family: JetBrains Mono; font-weight: 700; color: ${deltaVal > 0 ? '#10b981' : deltaVal < 0 ? '#f43f5e' : '#94a3b8'}">${formatDelta(deltaVal)}</span>
               </div>
               <div style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 3px;">
-                <span style="color: #94a3b8;">Sıra:</span>
+                <span style="color: #94a3b8;">Genel Sıra:</span>
                 <span style="font-family: JetBrains Mono;">${rankVal ? '#' + rankVal : '—'}</span>
               </div>
               <div style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px;">
@@ -197,20 +326,26 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           `;
         },
       },
-      grid: { left: 50, right: 30, top: 45, bottom: 45, containLabel: true },
+      grid: { left: 55, right: 35, top: 45, bottom: 50, containLabel: true },
       xAxis: {
         type: 'category',
         data: dates,
-        axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.15)' } },
-        axisLabel: { color: '#94a3b8', fontSize: 11, rotate: 30 },
+        axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.18)' } },
+        axisLabel: { color: '#94a3b8', fontSize: 11, rotate: 32 },
       },
       yAxis: {
         type: 'value',
         name: yAxisName,
         inverse: isInverse,
-        scale: metric === 'ukd' || metric === 'rank',
-        splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.06)' } },
-        axisLabel: { color: '#94a3b8', fontSize: 11 },
+        min: yMin,
+        max: yMax,
+        splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.07)' } },
+        axisLabel: {
+          color: '#cbd5e1',
+          fontSize: 11,
+          fontFamily: 'JetBrains Mono',
+          formatter: (val: number) => Math.round(val).toString(),
+        },
       },
       series: [
         {
@@ -218,28 +353,23 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           type: metric === 'change' ? 'bar' : 'line',
           connectNulls: true,
           data: seriesData,
-          smooth: metric !== 'change',
+          smooth: metric === 'ukd' ? 0.25 : false,
           showSymbol: true,
-          symbolSize: 7,
-          itemStyle: {
-            color:
-              metric === 'change'
-                ? (params: any) => (params.value >= 0 ? '#10b981' : '#f43f5e')
-                : '#38bdf8',
-          },
+          symbolSize: 6,
           lineStyle: { width: 3, color: '#38bdf8' },
-          markPoint:
-            metric === 'ukd'
+          markLine:
+            metric === 'change'
               ? {
-                  data: [{ type: 'max', name: 'Zirve' }],
-                  symbolSize: 48,
-                  itemStyle: { color: '#f59e0b' },
-                  label: { color: '#090d16', fontWeight: 'bold', fontSize: 10 },
+                  symbol: 'none',
+                  silent: true,
+                  lineStyle: { color: 'rgba(255,255,255,0.25)', type: 'dashed' },
+                  data: [{ yAxis: 0 }],
                 }
               : undefined,
           areaStyle:
             metric === 'ukd'
               ? {
+                  origin: 'start',
                   color: {
                     type: 'linear',
                     x: 0,
@@ -247,8 +377,8 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
                     x2: 0,
                     y2: 1,
                     colorStops: [
-                      { offset: 0, color: 'rgba(56, 189, 248, 0.25)' },
-                      { offset: 1, color: 'rgba(56, 189, 248, 0.0)' },
+                      { offset: 0, color: 'rgba(56, 189, 248, 0.28)' },
+                      { offset: 1, color: 'rgba(56, 189, 248, 0.02)' },
                     ],
                   },
                 }
@@ -277,7 +407,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           <input
             type="text"
             className="input-field"
-            placeholder="Sporcu adı, soyadı, lisans no veya kulüp yazın... (Örn: Cengiz, Kıvanç, 1002, Lefkoşa)"
+            placeholder="Sporcu adı, soyadı, lisans no veya kulüp yazın... (Örn: Hüseyin, Cengiz, Ahmet, 384, Lefkoşa)"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -297,7 +427,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           )}
         </div>
 
-        {/* In-Flow Search Results List (Pushes content down cleanly instead of overlapping) */}
+        {/* In-Flow Search Results List */}
         {searchQuery.trim().length > 0 && (
           <div className="search-results-panel">
             <div className="search-results-header">
@@ -341,10 +471,19 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
                         <span>Lisans: #{s.player.id}</span>
                         {s.player.b && <span>• Doğum: {s.player.b}</span>}
                         <span>• Maç: {s.careerGames}</span>
-                        <span>• Aktif Dönem: {s.ratedCount}</span>
+                        <span>• Değişimli Dönem: {s.changesCount}</span>
                       </div>
                     </div>
                     <div className="search-item-right">
+                      {s.totalChange !== 0 && (
+                        <span
+                          className={`delta-badge ${
+                            s.totalChange > 0 ? 'delta-pos' : 'delta-neg'
+                          }`}
+                        >
+                          {formatDelta(s.totalChange)} net
+                        </span>
+                      )}
                       <div className="search-item-ukd">{formatUkd(s.latestUkd)}</div>
                     </div>
                   </div>
@@ -357,7 +496,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
         {/* Quick Picks Row when not typing */}
         {!searchQuery.trim() && featuredPlayers.length > 0 && (
           <div className="quick-picks-row">
-            <span className="quick-pick-label">Hızlı Seçim:</span>
+            <span className="quick-pick-label">Aktif Öne Çıkanlar:</span>
             {featuredPlayers.map((fp) => (
               <button
                 key={fp.player.id}
@@ -365,7 +504,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
                 className={`quick-pick-btn ${fp.player.id === player.id ? 'active' : ''}`}
                 onClick={() => handleChoosePlayer(fp.player.id)}
               >
-                {fp.player.n} ({formatUkd(fp.latestUkd)})
+                {fp.player.n} ({formatUkd(fp.latestUkd)} • {formatDelta(fp.totalChange)})
               </button>
             ))}
           </div>
@@ -466,7 +605,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
             <span className="metric-value">{formatUkd(peakUkd)}</span>
           </div>
           <div className="metric-sub">
-            {peakPeriodIndex >= 0 ? dataset.periods[peakPeriodIndex]?.name : '—'}
+            {peakPeriodIndex >= 0 ? dataset.periods[peakPeriodIndex]?.name : '—'} (Min: {formatUkd(minUkd)})
           </div>
         </div>
 
@@ -492,7 +631,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
               {totalChange > 0 ? 'Gelişim' : totalChange < 0 ? 'Düşüş' : 'Sabit'}
             </span>
           </div>
-          <div className="metric-sub">İlk listeden bugüne</div>
+          <div className="metric-sub">{changesCount} dönemde puan değişimi</div>
         </div>
 
         <div className="metric-card">
@@ -531,9 +670,23 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
       {/* Chart Section */}
       <div className="glass-card">
         <div className="glass-card-header">
-          <div className="card-title">
-            <TrendingUp size={20} color="var(--accent-sky)" />
-            <span>{player.n} — Zaman Serisi Grafiği</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <div className="card-title">
+              <TrendingUp size={20} color="var(--accent-sky)" />
+              <span>{player.n} — Gelişim Grafiği</span>
+            </div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              {windowStats.spread > 0 ? (
+                <span>
+                  Seçili aralıkta UKD bandı: <strong style={{ color: '#fff' }}>{formatUkd(windowStats.minU)} – {formatUkd(windowStats.maxU)}</strong> ({windowStats.spread} puan marj, {windowStats.changePeriodsInWindow} dönemde değişim)
+                </span>
+              ) : (
+                <span style={{ color: 'var(--accent-amber)', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                  <Info size={14} />
+                  Bu sporcunun seçilen dönem aralığında UKD puanı değişmemiş ({formatUkd(windowStats.minU)} olarak sabit kalmıştır).
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="controls-row">
@@ -636,7 +789,7 @@ export const PlayerView: React.FC<PlayerViewProps> = ({
           </div>
         )}
 
-        <div style={{ height: 400, width: '100%' }}>
+        <div style={{ height: 420, width: '100%' }}>
           <ReactECharts option={chartOption} notMerge={true} style={{ height: '100%', width: '100%' }} />
         </div>
       </div>

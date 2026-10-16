@@ -11,10 +11,10 @@ interface CompareViewProps {
 }
 
 export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, onSelectPlayer }) => {
-  // Default to top 3 active players with rich local match history
+  // Default to top 3 active players with dynamic rating progression
   const [selectedIds, setSelectedIds] = useState<string[]>(() => {
     const active = [...summaries]
-      .filter((s) => s.careerGames >= 15 && s.ratedCount >= 10)
+      .filter((s) => s.changesCount >= 10 && s.ratedCount >= 15)
       .sort((a, b) => b.latestUkd - a.latestUkd);
     const pool = active.length >= 3 ? active : [...summaries].sort((a, b) => b.latestUkd - a.latestUkd);
     return pool.slice(0, 3).map((s) => s.player.id);
@@ -86,7 +86,7 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
   const displayedPeriods = dataset.periods.slice(periodSlice);
   const periodIndices = displayedPeriods.map((_, idx) => idx + periodSlice);
 
-  // ECharts Multi-line Option
+  // ECharts Multi-line Option with tight dynamic Y-axis bounds
   const chartOption = useMemo(() => {
     const dates = displayedPeriods.map((p) => p.name);
     const isInverse = metric === 'rank';
@@ -94,6 +94,8 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
     if (metric === 'gain') yAxisName = 'Kümülatif Net Kazanç (Δ)';
     else if (metric === 'rank') yAxisName = 'Liste Sırası (1 = En Üst)';
     else if (metric === 'games') yAxisName = 'Toplam Maç';
+
+    const allNumbers: number[] = [];
 
     const series = selectedSummaries.map((summary, idx) => {
       const color = CHART_PALETTE[idx % CHART_PALETTE.length];
@@ -103,7 +105,6 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
       if (metric === 'ukd') {
         data = periodIndices.map((i) => (p.u[i] && p.u[i]! > 0 ? p.u[i] : null));
       } else if (metric === 'gain') {
-        // First valid rating inside the selected window or career
         const firstValid = periodIndices.map((i) => p.u[i]).find((v) => v !== null && v > 0) ?? summary.firstUkd;
         data = periodIndices.map((i) => {
           const v = p.u[i];
@@ -115,18 +116,39 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
         data = periodIndices.map((i) => p.k[i] ?? 0);
       }
 
+      data.forEach((v) => {
+        if (v !== null && Number.isFinite(v)) allNumbers.push(v);
+      });
+
       return {
         name: p.n,
         type: 'line',
         connectNulls: true,
         data,
-        smooth: true,
+        smooth: 0.2,
         showSymbol: selectedSummaries.length <= 5,
         symbolSize: 6,
         itemStyle: { color },
         lineStyle: { width: 3, color },
       };
     });
+
+    let yMin: number | undefined = undefined;
+    let yMax: number | undefined = undefined;
+
+    if (allNumbers.length > 0) {
+      const minV = Math.min(...allNumbers);
+      const maxV = Math.max(...allNumbers);
+      const spread = maxV - minV;
+      if (spread === 0) {
+        yMin = metric === 'rank' ? Math.max(1, minV - 5) : minV - 20;
+        yMax = maxV + 20;
+      } else {
+        const pad = Math.max(4, Math.ceil(spread * 0.12));
+        yMin = metric === 'rank' ? Math.max(1, Math.floor(minV - pad)) : Math.floor(minV - pad);
+        yMax = Math.ceil(maxV + pad);
+      }
+    }
 
     return {
       backgroundColor: 'transparent',
@@ -142,20 +164,26 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
         textStyle: { color: '#cbd5e1', fontSize: 12 },
         top: 0,
       },
-      grid: { left: 50, right: 30, top: 45, bottom: 45, containLabel: true },
+      grid: { left: 55, right: 35, top: 45, bottom: 50, containLabel: true },
       xAxis: {
         type: 'category',
         data: dates,
-        axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.15)' } },
-        axisLabel: { color: '#94a3b8', fontSize: 11, rotate: 30 },
+        axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.18)' } },
+        axisLabel: { color: '#94a3b8', fontSize: 11, rotate: 32 },
       },
       yAxis: {
         type: 'value',
         name: yAxisName,
         inverse: isInverse,
-        scale: metric === 'ukd' || metric === 'rank',
-        splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.06)' } },
-        axisLabel: { color: '#94a3b8', fontSize: 11 },
+        min: yMin,
+        max: yMax,
+        splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.07)' } },
+        axisLabel: {
+          color: '#cbd5e1',
+          fontSize: 11,
+          fontFamily: 'JetBrains Mono',
+          formatter: (val: number) => Math.round(val).toString(),
+        },
       },
       series,
     };
@@ -170,7 +198,9 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
             <Users size={16} />
             <span>Çoklu Sporcu Karşılaştırma ({selectedSummaries.length} / 12 Sporcu Seçili)</span>
           </div>
-          <div className="search-hint">Grafikte karşılaştırmak için sporcu ekleyin veya çıkarın</div>
+          <div className="search-hint">
+            Farklı UKD seviyelerindeki sporcuların gelişim hızını kıyaslamak için <strong>"Kümülatif Net Kazanç (Δ)"</strong> ölçütünü de kullanabilirsiniz.
+          </div>
         </div>
 
         {/* Selected Chips */}
@@ -285,9 +315,15 @@ export const CompareView: React.FC<CompareViewProps> = ({ dataset, summaries, on
                           <div className="search-item-meta">
                             <span>Lisans: #{s.player.id}</span>
                             <span>• Maç: {s.careerGames}</span>
+                            <span>• Değişimli Dönem: {s.changesCount}</span>
                           </div>
                         </div>
                         <div className="search-item-right">
+                          {s.totalChange !== 0 && (
+                            <span className={`delta-badge ${s.totalChange > 0 ? 'delta-pos' : 'delta-neg'}`}>
+                              {formatDelta(s.totalChange)} net
+                            </span>
+                          )}
                           <div className="search-item-ukd">{formatUkd(s.latestUkd)}</div>
                         </div>
                       </div>

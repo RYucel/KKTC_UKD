@@ -35,6 +35,7 @@ export interface PlayerSummary {
   latestChange: number;
   peakUkd: number;
   peakPeriodIndex: number;
+  minUkd: number;
   firstUkd: number;
   firstPeriodIndex: number;
   totalChange: number;
@@ -42,6 +43,7 @@ export interface PlayerSummary {
   latestRank: number;
   bestRank: number;
   ratedCount: number;
+  changesCount: number;
   currentClub: string;
   searchStr: string;
 }
