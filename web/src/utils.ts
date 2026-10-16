@@ -1,5 +1,26 @@
 import { PlayerRaw, PlayerSummary } from './types';
 
+/**
+ * Turkish-insensitive string normalizer for search queries.
+ * Converts İ/I/ı/i -> i, ş -> s, ğ -> g, ü -> u, ö -> o, ç -> c
+ */
+export function normalizeTr(text: string | null | undefined): string {
+  if (!text) return '';
+  return text
+    .replace(/İ/g, 'i')
+    .replace(/I/g, 'i')
+    .replace(/ı/g, 'i')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ş/g, 's')
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .trim();
+}
+
 export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): PlayerSummary[] {
   return players.map((p) => {
     let latestUkd = 0;
@@ -44,8 +65,9 @@ export function buildPlayerSummaries(players: PlayerRaw[], clubs: string[]): Pla
     }
 
     if (bestRank === 999999) bestRank = 0;
-    const totalChange = firstUkd > 0 ? latestUkd - firstUkd : 0;
-    const searchStr = `${p.n} ${p.id} ${currentClub} ${p.t}`.toLowerCase();
+    const totalChange = firstUkd > 0 ? Math.round((latestUkd - firstUkd) * 10) / 10 : 0;
+    const rawSearch = `${p.n} ${p.id} ${currentClub} ${p.t}`;
+    const searchStr = normalizeTr(rawSearch);
 
     return {
       player: p,
@@ -73,8 +95,9 @@ export function formatUkd(val: number | null | undefined): string {
 
 export function formatDelta(val: number | null | undefined): string {
   if (val === null || val === undefined || val === 0) return '0';
-  const rounded = Math.round(val);
-  return rounded > 0 ? `+${rounded}` : `${rounded}`;
+  const rounded = Math.round(val * 10) / 10;
+  const str = Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(1);
+  return rounded > 0 ? `+${str}` : str;
 }
 
 export const CHART_PALETTE = [

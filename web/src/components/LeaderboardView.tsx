@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Trophy, Search, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Trophy, Search, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { UkdDataset, PlayerSummary } from '../types';
-import { formatUkd, formatDelta } from '../utils';
+import { formatUkd, formatDelta, normalizeTr } from '../utils';
 
 interface LeaderboardViewProps {
   dataset: UkdDataset;
@@ -9,7 +9,7 @@ interface LeaderboardViewProps {
   onSelectPlayer: (id: string) => void;
 }
 
-export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summaries, onSelectPlayer }) => {
+export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, onSelectPlayer }) => {
   const nPeriods = dataset.periods.length;
   const [selectedPeriodIdx, setSelectedPeriodIdx] = useState<number>(Math.max(0, nPeriods - 1));
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,7 +23,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
 
   const currentPeriod = dataset.periods[selectedPeriodIdx];
 
-  // Titles list
   const availableTitles = useMemo(() => {
     const set = new Set<string>();
     dataset.players.forEach((p) => {
@@ -32,10 +31,10 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
     return Array.from(set).sort();
   }, [dataset.players]);
 
-  // Compute period leaderboard
   const periodRows = useMemo(() => {
     const rows = [];
-    const q = searchQuery.toLowerCase().trim();
+    const q = normalizeTr(searchQuery);
+    const tokens = q.split(/\s+/).filter(Boolean);
 
     for (let i = 0; i < dataset.players.length; i++) {
       const p = dataset.players[i];
@@ -47,7 +46,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
       const cIdx = p.c[selectedPeriodIdx];
       const club = cIdx >= 0 && cIdx < dataset.clubs.length ? dataset.clubs[cIdx] : '';
 
-      // Skip unlisted in that period
       if (u === null && r === null) continue;
       if (onlyRated && (!u || u <= 0)) continue;
 
@@ -56,9 +54,9 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
       if (genderFilter !== 'all' && p.g !== genderFilter) continue;
       if (visaFilter !== 'all' && p.s !== visaFilter) continue;
 
-      if (q) {
-        const str = `${p.n} ${p.id} ${club} ${p.t}`.toLowerCase();
-        if (!str.includes(q)) continue;
+      if (tokens.length > 0) {
+        const str = normalizeTr(`${p.n} ${p.id} ${club} ${p.t}`);
+        if (!tokens.every((tok) => str.includes(tok))) continue;
       }
 
       rows.push({
@@ -72,7 +70,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
       });
     }
 
-    // Sort by rank or ukd descending
     return rows.sort((a, b) => {
       if (a.ukd !== b.ukd) return b.ukd - a.ukd;
       return a.rank - b.rank;
@@ -88,15 +85,15 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
   return (
     <div>
       {/* Filters and Period Selection */}
-      <div className="glass-card" style={{ marginBottom: '20px' }}>
+      <div className="glass-card">
         <div className="glass-card-header">
           <div className="card-title">
             <Trophy size={20} color="var(--accent-amber)" />
-            Resmi UKD Genel Sıralaması
+            <span>Resmi UKD Genel Sıralaması</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+            <label style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', fontWeight: 700 }}>
               Dönem:
             </label>
             <select
@@ -122,22 +119,32 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
 
         {/* Filter Controls Row */}
         <div className="controls-row" style={{ gap: 12 }}>
-          {/* Search */}
-          <div style={{ flex: 1, minWidth: 200, position: 'relative' }}>
+          <div style={{ flex: 1, minWidth: 220, position: 'relative' }}>
             <Search className="search-icon" size={16} />
             <input
               type="text"
               className="input-field"
-              placeholder="İsim, lisans no veya kulüp ara..."
+              placeholder="İsim, soyad, lisans no veya kulüp ara..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setPage(1);
               }}
             />
+            {searchQuery && (
+              <button
+                type="button"
+                className="search-clear-btn"
+                onClick={() => {
+                  setSearchQuery('');
+                  setPage(1);
+                }}
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
-          {/* Title */}
           <select
             className="select-control"
             value={titleFilter}
@@ -154,7 +161,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
             ))}
           </select>
 
-          {/* Club */}
           <select
             className="select-control"
             value={clubFilter}
@@ -171,7 +177,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
             ))}
           </select>
 
-          {/* Gender */}
           <select
             className="select-control"
             value={genderFilter}
@@ -185,7 +190,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
             <option value="K">Yalnızca Kadın</option>
           </select>
 
-          {/* Visa */}
           <select
             className="select-control"
             value={visaFilter}
@@ -199,13 +203,12 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
             <option value="Vizesiz">Vizesiz</option>
           </select>
 
-          {/* Only Rated Checkbox */}
           <label
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              fontSize: '0.85rem',
+              fontSize: '0.84rem',
               color: 'var(--text-secondary)',
               cursor: 'pointer',
               userSelect: 'none',
@@ -223,11 +226,14 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
           </label>
         </div>
 
-        {/* Period Summary Stats */}
-        <div style={{ marginTop: 16, display: 'flex', gap: 16, color: 'var(--text-secondary)', fontSize: '0.85rem', flexWrap: 'wrap' }}>
-          <span>Filtrelenen Sporcu: <strong style={{ color: '#fff' }}>{periodRows.length.toLocaleString('tr-TR')}</strong></span>
+        <div style={{ marginTop: 14, display: 'flex', gap: 16, color: 'var(--text-secondary)', fontSize: '0.84rem', flexWrap: 'wrap' }}>
+          <span>
+            Filtrelenen Sporcu: <strong style={{ color: '#fff' }}>{periodRows.length.toLocaleString('tr-TR')}</strong>
+          </span>
           {currentPeriod.tournaments.length > 0 && (
-            <span>Dahil Turnuva: <strong style={{ color: 'var(--accent-sky)' }}>{currentPeriod.tournaments.length}</strong></span>
+            <span>
+              Dahil Turnuva: <strong style={{ color: 'var(--accent-sky)' }}>{currentPeriod.tournaments.length}</strong>
+            </span>
           )}
         </div>
       </div>
@@ -256,20 +262,19 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
                 const globalIndex = (page - 1) * pageSize + idx + 1;
                 return (
                   <tr key={row.player.id}>
-                    <td className="font-mono" style={{ color: globalIndex <= 3 ? 'var(--accent-amber)' : 'var(--text-secondary)', fontWeight: 700 }}>
+                    <td
+                      className="font-mono"
+                      style={{
+                        color: globalIndex <= 3 ? 'var(--accent-amber)' : 'var(--text-secondary)',
+                        fontWeight: 700,
+                      }}
+                    >
                       #{globalIndex}
                     </td>
                     <td>
                       <button
-                        style={{
-                          background: 'transparent',
-                          border: 'none',
-                          color: '#fff',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          textAlign: 'left',
-                          fontSize: '0.92rem',
-                        }}
+                        type="button"
+                        className="player-link-btn"
                         onClick={() => onSelectPlayer(row.player.id)}
                       >
                         {row.player.n}
@@ -279,12 +284,19 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
                       #{row.player.id}
                     </td>
                     <td>{row.player.t ? <span className="badge badge-title">{row.player.t}</span> : '—'}</td>
-                    <td style={{ color: 'var(--text-secondary)' }}>{row.club || '—'}</td>
-                    <td className="text-right font-mono" style={{ fontWeight: 800, color: 'var(--accent-sky)', fontSize: '1rem' }}>
+                    <td style={{ color: 'var(--text-secondary)' }}>{row.club || 'Bireysel'}</td>
+                    <td
+                      className="text-right font-mono"
+                      style={{ fontWeight: 800, color: 'var(--accent-sky)', fontSize: '0.98rem' }}
+                    >
                       {formatUkd(row.ukd)}
                     </td>
                     <td className="text-right font-mono">
-                      <span className={`delta-badge ${row.delta > 0 ? 'delta-pos' : row.delta < 0 ? 'delta-neg' : 'delta-zero'}`}>
+                      <span
+                        className={`delta-badge ${
+                          row.delta > 0 ? 'delta-pos' : row.delta < 0 ? 'delta-neg' : 'delta-zero'
+                        }`}
+                      >
                         {formatDelta(row.delta)}
                       </span>
                     </td>
@@ -306,11 +318,12 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
         {/* Pagination Controls */}
         {totalPages > 1 && (
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 16 }}>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
               Sayfa {page} / {totalPages} (Toplam {periodRows.length} kayıt)
             </span>
             <div style={{ display: 'flex', gap: 8 }}>
               <button
+                type="button"
                 className="btn-group-item"
                 style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'var(--bg-surface)' }}
                 disabled={page <= 1}
@@ -319,6 +332,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ dataset, summa
                 <ChevronLeft size={16} /> Önceki
               </button>
               <button
+                type="button"
                 className="btn-group-item"
                 style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'var(--bg-surface)' }}
                 disabled={page >= totalPages}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Calendar, Search, Award } from 'lucide-react';
+import { Calendar, Search, X } from 'lucide-react';
 import { UkdDataset } from '../types';
+import { normalizeTr } from '../utils';
 
 interface ArchiveViewProps {
   dataset: UkdDataset;
@@ -9,31 +10,29 @@ interface ArchiveViewProps {
 export const ArchiveView: React.FC<ArchiveViewProps> = ({ dataset }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Count total tournaments
   const totalTournaments = useMemo(() => {
     return dataset.periods.reduce((acc, p) => acc + (p.tournaments?.length || 0), 0);
   }, [dataset.periods]);
 
-  // Filter periods
   const filteredPeriods = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
+    const q = normalizeTr(searchQuery);
     if (!q) return [...dataset.periods].reverse();
 
     return [...dataset.periods].reverse().filter((p) => {
-      if (p.name.toLowerCase().includes(q)) return true;
+      if (normalizeTr(p.name).includes(q)) return true;
       if (p.date.includes(q)) return true;
-      return p.tournaments.some((t) => t.toLowerCase().includes(q));
+      return p.tournaments.some((t) => normalizeTr(t).includes(q));
     });
   }, [dataset.periods, searchQuery]);
 
   return (
     <div>
       {/* Top Banner */}
-      <div className="glass-card" style={{ marginBottom: '20px' }}>
+      <div className="glass-card">
         <div className="glass-card-header">
           <div className="card-title">
             <Calendar size={20} color="var(--accent-sky)" />
-            KKSF Resmi Dönem ve Turnuva Arşivi
+            <span>KKSF Resmi Dönem ve Turnuva Arşivi</span>
           </div>
         </div>
 
@@ -43,7 +42,9 @@ export const ArchiveView: React.FC<ArchiveViewProps> = ({ dataset }) => {
             <div className="metric-value-row">
               <span className="metric-value">{dataset.periods.length}</span>
             </div>
-            <div className="metric-sub">{dataset.periods[0]?.name} → {dataset.periods[dataset.periods.length - 1]?.name}</div>
+            <div className="metric-sub">
+              {dataset.periods[0]?.name} → {dataset.periods[dataset.periods.length - 1]?.name}
+            </div>
           </div>
 
           <div className="metric-card">
@@ -59,7 +60,9 @@ export const ArchiveView: React.FC<ArchiveViewProps> = ({ dataset }) => {
           <div className="metric-card">
             <div className="metric-label">Resmi Veri Kaynağı</div>
             <div className="metric-value-row">
-              <span className="metric-value" style={{ fontSize: '1.25rem' }}>kksfed.org</span>
+              <span className="metric-value" style={{ fontSize: '1.25rem' }}>
+                kksfed.org
+              </span>
             </div>
             <div className="metric-sub">KKSF API v1 Yayınları</div>
           </div>
@@ -75,21 +78,28 @@ export const ArchiveView: React.FC<ArchiveViewProps> = ({ dataset }) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
+          {searchQuery && (
+            <button
+              type="button"
+              className="search-clear-btn"
+              onClick={() => setSearchQuery('')}
+            >
+              <X size={15} />
+            </button>
+          )}
         </div>
       </div>
 
       {/* Periods Grid / List */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: 16 }}>
+      <div className="archive-grid">
         {filteredPeriods.map((p) => (
           <div key={p.id} className="glass-card" style={{ margin: 0, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
               <div>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: 2 }}>{p.name}</h3>
-                <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>Yayın Tarihi: {p.date}</span>
+                <h3 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#fff', marginBottom: 2 }}>{p.name}</h3>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Yayın Tarihi: {p.date}</span>
               </div>
-              <span className="pill-badge highlight">
-                {p.tournaments.length} Turnuva
-              </span>
+              <span className="pill-badge highlight">{p.tournaments.length} Turnuva</span>
             </div>
 
             <div style={{ flex: 1 }}>
@@ -104,7 +114,7 @@ export const ArchiveView: React.FC<ArchiveViewProps> = ({ dataset }) => {
                         padding: '6px 10px',
                         borderRadius: 6,
                         background: 'rgba(255, 255, 255, 0.03)',
-                        border: '1px solid rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.06)',
                         display: 'flex',
                         alignItems: 'center',
                         gap: 8,
